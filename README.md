@@ -1,3 +1,5 @@
+To run in CLoud 9 - SHELL: gatsby develop -p $PORT -H $IP
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
