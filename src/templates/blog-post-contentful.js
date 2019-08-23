@@ -7,6 +7,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import Header from "../components/header"
+
 class BlogPostContentfulTemplate extends React.Component {
   render() {
     const post = this.props.data.contentfulPost
@@ -16,12 +18,13 @@ class BlogPostContentfulTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.title} description={post.subtitle} />
+        <Header />
         <Img fluid={post.image.fluid} />
         <article>
           <header>
             <h1
               style={{
-                marginTop: rhythm(1),
+                marginTop: 0,
                 marginBottom: 0,
               }}
             >
