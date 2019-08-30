@@ -11,7 +11,7 @@ import Header from "../components/header"
 
 class BlogPostContentfulTemplate extends React.Component {
   render() {
-    const post = this.props.data.contentfulPost
+    const post = this.props.data.contentfulBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -31,7 +31,7 @@ class BlogPostContentfulTemplate extends React.Component {
               {post.title}
             </h1>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.content.content }} />
+          <section className="carl" dangerouslySetInnerHTML={{ __html: post.content.content }} />
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -83,10 +83,12 @@ export const pageQuery = graphql`
         author
       }
     }
-    contentfulPost( slug: { eq: $slug }) {
+    contentfulBlogPost( slug: { eq: $slug }) {
       title
       subtitle
-      author
+      tags
+      published
+      modified
       image {
         fluid {
           ...GatsbyContentfulFluid

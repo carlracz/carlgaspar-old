@@ -134,7 +134,7 @@ const HomeCss = createGlobalStyle`
     
     .home__interests {
       position: relative;
-      top: -43px;
+      top: -18px;
       font-size: 100%;
       color: ${props => props.theme.colorMode.primary};
       line-height: 1;
@@ -145,7 +145,7 @@ const HomeCss = createGlobalStyle`
   /** SCROLL */
   .home__scroll {
     position: absolute;
-    top: 95%;
+    bottom: 1rem;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;

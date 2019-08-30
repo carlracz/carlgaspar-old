@@ -9,7 +9,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-import FullPage from "./fullpage";
+import Header from "../components/header";
+import Mainbody from "../components/mainbody";
 import ColorMode from "../components/utils/colorMode"
 
 class BlogIndex extends React.Component {
@@ -49,12 +50,21 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allContentfulPost.edges
+    const blogPosts = data.allContentfulBlogPost.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <FullPage posts={posts} />
+        <SEO title="All blogPosts" />
+        <Header />
+        <Mainbody 
+          blogPosts={blogPosts}
+          rhythm={rhythm}
+        />
+        {/*<Featured 
+          blogPosts={this.props.blogPosts}
+          rhythm={rhythm}
+        />
+        <Footer />*/}
         <ColorMode theme={this.state} />
       </Layout>
     )
@@ -70,20 +80,23 @@ export const pageQuery = graphql`
         title
       }
     }
-   allContentfulPost {
-     edges {
-       node {
-         title
-         subtitle
-         image {
-           fluid {
-             ...GatsbyContentfulFluid
-           }
-         }
-         author
-         slug
-       }
-     }
-   }
+    allContentfulBlogPost {
+      edges {
+        node {
+          title
+          subtitle
+          slug
+          published(formatString: "MMM DD, YYYY")
+          modified(formatString: "MMM DD, YYYY")
+          featured
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          tags
+        }
+      }
+    }
   }
 `

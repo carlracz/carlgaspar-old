@@ -52,10 +52,14 @@ class Home extends Component {
                       <span className="home__name--R">R</span>
                     </span>
                   </span>
+                  
+                  <Typist.Delay ms={3000} />
                   <Typist.Backspace count={13} delay={4000} />
                   <Typist.Delay ms={1000} />
                   <span className="home__name--emphasis">@</span>
                   carlracz
+                  
+                  <Typist.Delay ms={3000} />
                   <Typist.Backspace count={9} delay={4000} />
                   <Typist.Delay ms={1000} />
                   <span className="home__name--emphasis">#</span>
@@ -155,30 +159,29 @@ class Home extends Component {
           </Animated>
 
           <Animated
+            className="home__interests"
             animationIn="bounceIn"
-            animationOut="bounceOutDown"
+            animationOut="fadeOutDown"
             isVisible={this.props.atHome}
             animationInDuration={2000}
             animationOutDuration={1000}
           >
-            <p className="home__interests">
               Interests: Programming (Java, ReactJS, Docker, asdf), Videography,
               Youtube, Investing, Dota2
-            </p>
           </Animated>
         </div>
 
+        {/*put the class on the animated, because error on placement inside the div*/}
         <Animated
+          className="home__scroll"
           animationIn="bounceIn"
-          animationOut="bounceOutDown"
+          animationOut="fadeOutUp"
           isVisible={this.props.atHome}
           animationInDuration={2000}
           animationOutDuration={1000}
         >
-          <div className="home__scroll">
-            <div className="home__outside">
-              <div className="home__inside"></div>
-            </div>
+          <div className="home__outside">
+            <div className="home__inside"></div>
           </div>
         </Animated>
       </div>
