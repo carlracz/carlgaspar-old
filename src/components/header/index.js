@@ -32,25 +32,48 @@ class Header extends Component {
       window.addEventListener('scroll', this.handleScroll);
   }
   
-  handleScroll = () => {
+  handleScroll = (e) => {
     let scrollPosition = Math.round(window.scrollY);
     // If we've scrolled 100px, add minimize class to the header
-    if (scrollPosition >= 100) {
-        this.setState({
-          header: "header--minimized",
-          headerName: "header__name--minimized",
-          headerSocials: "header__socials--minimized",
-          headerNavigation: "header__navigation--minimized"
-        });
+    if (scrollPosition >= 100 && scrollPosition < 200) {
+      this.setState({
+        header: "header--minimized",
+        headerName: "header__name--minimized",
+        headerSocials: "header__socials--minimized",
+        headerNavigation: "header__navigation--minimized"
+      });
+    }
+    // If we've scrolled 200px, add minimize class to the header
+    else if (scrollPosition >= 200) {
+      this.setState({
+        header: "header--minimized2",
+        headerName: "header__name--minimized2",
+        headerSocials: "header__socials--minimized2",
+        headerNavigation: "header__navigation--minimized2"
+      });
     }
     // If not, remove minimize class from header
     else {
-        this.setState({
-          header: "",
-          headerName: "",
-          headerSocials: "",
-          headerNavigation: ""
-        });
+      this.setState({
+        header: "",
+        headerName: "",
+        headerSocials: "",
+        headerNavigation: ""
+      });
+    }
+    
+    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    const windowBottom = windowHeight + window.pageYOffset;
+    if (windowBottom >= docHeight  - 100) {
+      this.setState({
+        header: "header--minimized2",
+        headerName: "header__name--minimized2",
+        headerSocials: "header__socials--minimized2",
+        headerNavigation: "header__navigation--minimized2"
+      });
     }
   }
   
@@ -61,7 +84,7 @@ class Header extends Component {
           <div className={"header__name " + this.state.headerName}>
             <div>
               CARL{" "}
-              <span className="header__name--emphasis">
+              <span className="--emphasis">
                 GASPAR
               </span>
             </div>

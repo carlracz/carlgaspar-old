@@ -11,6 +11,7 @@ import { rhythm } from "../utils/typography"
 
 import Header from "../components/header";
 import Mainbody from "../components/mainbody";
+import Footer from "../components/footer";
 import ColorMode from "../components/utils/colorMode"
 
 class BlogIndex extends React.Component {
@@ -53,20 +54,22 @@ class BlogIndex extends React.Component {
     const blogPosts = data.allContentfulBlogPost.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <>
+      {/* <Layout location={this.props.location} title={siteTitle}> */}
         <SEO title="All blogPosts" />
         <Header />
         <Mainbody 
           blogPosts={blogPosts}
           rhythm={rhythm}
+          footer={<Footer />}
         />
         {/*<Featured 
           blogPosts={this.props.blogPosts}
           rhythm={rhythm}
-        />
-        <Footer />*/}
+        />*/}
         <ColorMode theme={this.state} />
-      </Layout>
+      {/* </Layout> */}
+      </>
     )
   }
 }

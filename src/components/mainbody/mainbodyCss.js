@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const MainbodyCss = createGlobalStyle`
   /** MAINBODY */
   .mainbody__ {
+    min-height: 100%;
     position: absolute;
     left: 0px;
     right: 0px;

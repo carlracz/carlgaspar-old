@@ -79,21 +79,9 @@ class Mainbody extends Component {
         <h2>Carl</h2>
         <h2>Carl</h2>
         <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
-        <h2>Carl</h2>
         </div>
+        
+        {this.props.footer}
       </div>
     );
   }

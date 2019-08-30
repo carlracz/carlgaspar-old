@@ -8,12 +8,11 @@ import "react-typist/dist/Typist.css";
 import facebook from "../../../content/assets/Socials/facebook.svg"
 
 
-class Header extends Component {
+class Footer extends Component {
   state = {
-    header: "",
-    headerName: "",
-    headerSocials: "",
-    headerNavigation: "",
+    footer: "",
+    footerName: "",
+    footerSocials: "",
     isTyping: true
   };
 
@@ -33,53 +32,51 @@ class Header extends Component {
   }
   
   handleScroll = () => {
-    let scrollPosition = Math.round(window.scrollY);
-    // If we've scrolled 100px, add minimize class to the header
-    if (scrollPosition >= 100) {
-        this.setState({
-          header: "header--minimized",
-          headerName: "header__name--minimized",
-          headerSocials: "header__socials--minimized",
-          headerNavigation: "header__navigation--minimized"
-        });
+    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    const windowBottom = windowHeight + window.pageYOffset;
+    if (windowBottom >= docHeight - 100) {
+      this.setState({
+        //footer: "footer--minimized",
+        //footerName: "footer__name--minimized",
+        //footerSocials: "footer__socials--minimized"
+      });
+      console.log("bottom 100")
     }
-    // If not, remove minimize class from header
     else {
-        this.setState({
-          header: "",
-          headerName: "",
-          headerSocials: "",
-          headerNavigation: ""
-        });
+      this.setState({
+        footer: "",
+        footerName: "",
+        footerSocials: ""
+      });
+      console.log("NOT bottom")
     }
   }
   
   render() {
     return (
-      <div className={"header__ " + this.state.header}>
-        <div className="header__container">
-          <div className={"header__name " + this.state.headerName}>
+      <div className={"footer__ " + this.state.footer}>
+        <div className="footer__container">
+          <div className={"footer__name " + this.state.footerName}>
             <div>
               CARL{" "}
-              <span className="header__name--emphasis">
+              <span className="--emphasis">
                 GASPAR
               </span>
             </div>
-            
-            {/* Included here instead of separate container because NAVIGATION is related to the NAME */}
-            <div className={"header__navigation " + this.state.headerNavigation}>
-              <div className="header__home">Home</div>
-              <div className="header__featured">Featured</div>
-              <div className="header__stopper">•</div>
-              <div className="header__blog">Blog</div>
-              <div className="header__portfolio">Portfolio</div>
+            <div className="footer__summary">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
             </div>
           </div>
-  
-          <div className={"header__socials " + this.state.headerSocials}>
+          
+          <div className={"footer__socials " + this.state.footerSocials}>
             <a
               href="asd"
-              className="header__reddit"
+              className="footer__reddit"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -87,7 +84,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__facebook"
+              className="footer__facebook"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -95,7 +92,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__instagram"
+              className="footer__instagram"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -103,7 +100,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__twitter"
+              className="footer__twitter"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -111,7 +108,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__github"
+              className="footer__github"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -119,7 +116,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__youtube"
+              className="footer__youtube"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -127,7 +124,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__linkedin"
+              className="footer__linkedin"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -135,7 +132,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__aboutme"
+              className="footer__aboutme"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -143,7 +140,7 @@ class Header extends Component {
             </a>{" "}
             <a
               href="asd"
-              className="header__portfolio"
+              className="footer__portfolio"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -151,9 +148,19 @@ class Header extends Component {
             </a>{" "}
           </div>
         </div>
+        
+        <div className="footer__credit">
+          <div className="footer__creditname">
+            <span className="--emphasis">@</span>
+            carlracz{" "}
+            <span className="--emphasis">|</span>{" "}
+            Designed by Carl{" "}
+            <span className="--emphasis">Gaspar</span>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default Header;
+export default Footer;

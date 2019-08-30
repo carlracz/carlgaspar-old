@@ -20,13 +20,14 @@ const HeaderCss = createGlobalStyle`
     height: 108px;
   }
   
-  .header--maximized {
-    height: 242px;
+  .header--minimized2 {
+    height: 80px;
   }
   /** HEADER */
   
   /** HEADER CONTAINER */
   .header__container {
+    position: relative; // without this NAME and SOCIALS not relating to the view port
     max-width: 70rem;
     height: 100%;
     margin: 0 auto;
@@ -61,7 +62,13 @@ const HeaderCss = createGlobalStyle`
   .header__name--minimized {
     bottom: 15px;
     left: 0;
-    transform: translateX(60%);
+    transform: unset;
+  }
+  
+  .header__name--minimized2 {
+    bottom: 0px;
+    left: 0;
+    transform: unset;
   }
   /** NAME */
   
@@ -140,7 +147,60 @@ const HeaderCss = createGlobalStyle`
     height: 50px;
     bottom: 33px;
     right: 0;
-    transform: translateX(-40%);
+    transform: unset;
+    
+    & > * {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      top: 7px;
+      
+      border-radius: 8px;
+    }
+    
+    .header__reddit {
+      left: 1px;
+    }
+    
+    .header__facebook {
+      left: 47px;
+    }
+    
+    .header__instagram {
+      left: 93px;
+    }
+    
+    .header__twitter {
+      left: 139px;
+    }
+    
+    .header__github {
+      left: 185px;
+    }
+    
+    .header__youtube {
+      left: 231px;
+    }
+    
+    .header__linkedin {
+      left: 277px;
+    }
+    
+    .header__aboutme {
+      left: 323px;
+    }
+    
+    .header__portfolio {
+      left: 369px;
+    }
+  }
+  
+  .header__socials--minimized2 {
+    width: 406px;
+    height: 50px;
+    bottom: 17px;
+    right: 0;
+    transform: unset;
     
     & > * {
       position: absolute;
@@ -245,6 +305,12 @@ const HeaderCss = createGlobalStyle`
   }
   
   .header__navigation--minimized {
+    top: 16px;
+    left: 105%;
+    transform: unset;
+  }
+  
+  .header__navigation--minimized2 {
     top: 16px;
     left: 105%;
     transform: unset;
