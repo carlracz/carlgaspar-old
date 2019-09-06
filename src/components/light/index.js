@@ -1,22 +1,39 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 
+import Typist from "react-typist";
+import { Animated } from "react-animated-css";
+
+import "react-typist/dist/Typist.css";
+import facebook from "../../../content/assets/Socials/facebook.svg"
+
 
 class Header extends Component {
   state = {
     header: "",
     headerName: "",
     headerSocials: "",
-    headerNavigation: ""
-  }
-  
+    headerNavigation: "",
+    isHeaderActive: true,
+    isTyping: true
+  };
+
+  // Typing Repeater
+  done = () => {
+    this.setState({ isTyping: false }, () => {
+      this.setState({ isTyping: true });
+    });
+  };
+
+  cursor = {
+    element: "_"
+  };
+
   componentDidMount = () => {
-    window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', this.handleResize);
-    this.isScrollActive()
+      window.addEventListener('scroll', this.handleScroll);
   }
   
-  handleScroll = () => {
+  handleScroll = (e) => {
     let scrollPosition = Math.round(window.scrollY);
     // If we've scrolled 100px, add minimize class to the header
     if (scrollPosition >= 100 && scrollPosition < 200) {
@@ -51,39 +68,25 @@ class Header extends Component {
     const html = document.documentElement;
     const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
     const windowBottom = windowHeight + window.pageYOffset;
-    if (windowBottom >= docHeight - 100) {
+    if (windowBottom >= docHeight - 50) {
       this.setState({
         header: "header--minimized3",
         headerName: "header__name--minimized3",
         headerSocials: "header__socials--minimized3",
-        headerNavigation: "header__navigation--minimized3"
+        headerNavigation: "header__navigation--minimized3",
+        isHeaderActive: false
       });
     }
-  }
-  
-  isScrollActive = () => {
-    const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    const body = document.body;
-    const html = document.documentElement;
-    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    
-    if (windowHeight === docHeight) {
+    else {
       this.setState({
-        header: "header--minimized3",
-        headerName: "header__name--minimized3",
-        headerSocials: "header__socials--minimized3",
-        headerNavigation: "header__navigation--minimized3"
+        isHeaderActive: true
       });
     }
-  }
-  
-  handleResize = () => {
-    console.log("carl")
   }
   
   render() {
     return (
-      <div className={"header " + this.state.header}>
+      <div className={"header__ " + this.state.header}>
         <div className="header__container">
           <div className={"header__name " + this.state.headerName}>
             <div>

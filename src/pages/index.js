@@ -2,79 +2,75 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import ReactFullpage from "@fullpage/react-fullpage";
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
+import storage from "local-storage-fallback";
+
 import Header from "../components/header";
-import Mainbody from "../components/mainbody";
+import Featured from "../components/featured";
+import Utilities from "../components/utilities";
 import Footer from "../components/footer";
-import ColorMode from "../components/utils/colorMode"
+import IndexCssHolder from "../components/css/indexCssHolder"
 
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   state = {
-    atHome: true,
-    atFeatured: false,
-    
-    colorMode: {
-      primary: "#000000",
-      secondary: "#ffffff",
-      tertiary: "#0069FF",
-
-      reddit: "#ff4301",
-        f: "#3b5998",
-        acebook: "#3b5998",
-        instagram: `background: -webkit-linear-gradient(45deg,
-          rgba(64,93,230,1) 0%,
-          rgba(88,81,219,1) 11.11111111111111%,
-          rgba(131,58,180,1) 22.22222222222222%,
-          rgba(193,53,132,1) 33.33333333333333%,
-          rgba(225,48,108,1) 44.44444444444444%,
-          rgba(253,29,29,1) 55.55555555555555%,
-          rgba(245,96,64,1) 66.66666666666666%,
-          rgba(247,119,55,1) 77.77777777777777%,
-          rgba(252,175,69,1) 88.88888888888888%,
-          rgba(255,220,128,1) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;`,
-        twitter: "#38a1f3",
-        youtube: "color: #ff0000;",
-        linkedin: "#0e76a8",
-
-      shadow: "0, 0, 0, 0.3" // Shadow requires RGBa
-    },
+    theme: "light"
   }
+  
+  componentDidMount = () => {
+    // Determine what is the theme
+    const savedTheme = storage.getItem("CarlGasparTheme")
+    savedTheme === "light" ? this.setLightTheme() : this.setDarkTheme()
+  }
+  
+  /** THEME */
+  setTheme = () => {
+    if (this.state.theme === "light") {
+      storage.setItem("CarlGasparTheme", "dark");
+      this.setDarkTheme();
+    } else {
+      storage.setItem("CarlGasparTheme", "light");
+      this.setLightTheme();
+    }
+  }
+  
+  setLightTheme = () => {
+    this.setState({ theme: "light" })
+  }
+  
+  setDarkTheme = () => {
+    this.setState({ theme: "dark" })
+  }
+  /** THEME */
   
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const blogPosts = data.allContentfulBlogPost.edges
+    const blog = data.allContentfulBlogPost.edges
+    const advertisement = data.allContentfulAdvertisement.edges
 
     return (
       <>
       {/* <Layout location={this.props.location} title={siteTitle}> */}
-        <SEO title="All blogPosts" />
+        <SEO title="All blog" />
         <Header />
-        <Mainbody 
-          blogPosts={blogPosts}
-          rhythm={rhythm}
-          footer={<Footer />}
+        <Featured 
+          blog={blog}
+          advertisement={advertisement}
+          footer={<Footer utilities={<Utilities setTheme={this.setTheme} />} />}
         />
-        {/*<Featured 
-          blogPosts={this.props.blogPosts}
-          rhythm={rhythm}
-        />*/}
-        <ColorMode theme={this.state} />
+        <IndexCssHolder theme={this.state.theme} />
       {/* </Layout> */}
       </>
     )
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
@@ -83,14 +79,15 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost {
+    allContentfulBlogPost (sort: { fields: [lastUpdated], order: DESC }) {
       edges {
         node {
           title
           subtitle
           slug
-          published(formatString: "MMM DD, YYYY")
-          modified(formatString: "MMM DD, YYYY")
+          timeToRead
+          published(formatString: "MMMM DD, YYYY")
+          lastUpdated(formatString: "MMMM DD, YYYY")
           featured
           image {
             fluid {
@@ -98,6 +95,27 @@ export const pageQuery = graphql`
             }
           }
           tags
+          tier
+        }
+      }
+    }
+    allContentfulAdvertisement (sort: { fields: [lastUpdated], order: DESC }) {
+      edges {
+        node {
+          title
+          subtitle
+          slug
+          timeToRead
+          published(formatString: "MMMM DD, YYYY")
+          lastUpdated(formatString: "MMMM DD, YYYY")
+          featured
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          tags
+          tier
         }
       }
     }

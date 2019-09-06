@@ -2,15 +2,16 @@ import { createGlobalStyle } from "styled-components";
 
 const HeaderCss = createGlobalStyle`
   /** HEADER */
-  .header {
+  .header__ {
     position: fixed;
-    height: 200px;
+    height: 242px;
     left: 0px;
     right: 0px;
     top: 0px;
     padding: 0 1.5em;
     
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    background: #FAFAFA;
+    //background-color: ${props => props.theme.colorMode.secondary};
     z-index: 1; // Mainbody has no z-index (means 0)
     
     transition: 300ms ease;
@@ -42,6 +43,7 @@ const HeaderCss = createGlobalStyle`
   .header__name {
     width: 270px;
     height: 77px;
+
     position: absolute;
     bottom: 94px;
     // Center Horizontal
@@ -52,9 +54,14 @@ const HeaderCss = createGlobalStyle`
     line-height: 76px;
     text-align: center;
     letter-spacing: -0.06em;
-    color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+    
+    color: ${props => props.theme.colorMode.primary};
     
     transition: 300ms ease;
+    
+    .header__name--emphasis {
+      color: ${props => props.theme.colorMode.tertiary};
+    }
   }
   
   .header__name--minimized {
@@ -273,7 +280,7 @@ const HeaderCss = createGlobalStyle`
       text-align: center;
       letter-spacing: -0.06em;
       
-      color: ${props => props.theme === "light" ? "var(--primaryLight3)" : "var(--primaryDark3)"};
+      color: #4F4F4F;
     }
     
     .header__home {
@@ -320,12 +327,6 @@ const HeaderCss = createGlobalStyle`
     transform: translateX(-50%);
   }
   /** NAVIGATION */
-  
-  /** EMPHASIS */
-  .--emphasis {
-    color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
-  }
-  /** EMPHASIS */
   
   /* ----------------------- ----------------------- ----------------------- */
   
