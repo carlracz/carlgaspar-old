@@ -1,16 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
+import aa from "./sprite_60fps.svg"
+
 const HeaderCss = createGlobalStyle`
   /** HEADER */
   .header {
     position: fixed;
     height: 200px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
+    left: 0;
+    right: 0;
+    top: 0;
     padding: 0 1.5em;
     
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    background: ${props =>
+      props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
     z-index: 1; // Mainbody has no z-index (means 0)
     
     transition: 300ms ease;
@@ -52,7 +55,8 @@ const HeaderCss = createGlobalStyle`
     line-height: 76px;
     text-align: center;
     letter-spacing: -0.06em;
-    color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+    color: ${props =>
+      props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
     
     transition: 300ms ease;
   }
@@ -64,12 +68,36 @@ const HeaderCss = createGlobalStyle`
   }
   
   .header__name--minimized2 {
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     transform: unset;
   }
   /** NAME */
   
+  @keyframes play60 {
+    0% {
+      background-position: 0px 0px;
+      width: 36px;
+    }
+    100% {
+      background-position: -3312px 0px;
+      width: 138px;
+    }
+  }
+  .shapeshifter {
+    animation-duration: 1000ms;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    width: 138px;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-image: url(${aa});
+  }
+  .shapeshifter.play {
+    animation-name: play60;
+  }
+  
+
   /** SOCIALS */
   .header__socials {
     width: 297px;
@@ -95,7 +123,7 @@ const HeaderCss = createGlobalStyle`
     }
   
     .header__reddit {
-      left: 0px;
+      left: 0;
       background: #FF3D00;
     }
     
@@ -273,12 +301,15 @@ const HeaderCss = createGlobalStyle`
       text-align: center;
       letter-spacing: -0.06em;
       
-      color: ${props => props.theme === "light" ? "var(--primaryLight3)" : "var(--primaryDark3)"};
+      color: ${props =>
+        props.theme === "light"
+          ? "var(--primaryLight3)"
+          : "var(--primaryDark3)"};
     }
     
     .header__home {
       width: 68px;
-      left: 0px;
+      left: 0;
     }
     
     .header__featured {
@@ -323,16 +354,287 @@ const HeaderCss = createGlobalStyle`
   
   /** EMPHASIS */
   .--emphasis {
-    color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+    color: ${props =>
+      props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
   }
   /** EMPHASIS */
   
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  // 319 v * .8
-  @media only screen and (max-width: 319px) {
+  @media only screen and (max-width: 1135px) {
+    .header--minimized {
+      height: 108px;
+    }
     
+    .header--minimized2 {
+      height: 108px;
+    }
+    
+    .header__name--minimized {
+      bottom: 43px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .header__name--minimized2 {
+      bottom: 43px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    
+    .header__socials--minimized {
+      width: 297px;
+      height: 39px;
+      
+      position: absolute;
+      bottom: 30px;
+      // Center Horizontal
+      right: 50%;
+      transform: translateX(50%);
+    
+      transition: 300ms ease;
+      
+      & > * {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 7px;
+        
+        border-radius: 8px;
+        
+        transition: 300ms ease;
+      }
+    
+      .header__reddit {
+        left: 0;
+        background: #FF3D00;
+      }
+      
+      .header__facebook {
+        left: 34px;
+        background: #00A3FF;
+      }
+      
+      .header__instagram {
+        left: 68px;
+        background: #BD00FF;
+      }
+      
+      .header__twitter {
+        left: 102px;
+        background: #00FFF0;
+      }
+      
+      .header__github {
+        left: 136px;
+        background: #006FD6;
+      }
+      
+      .header__youtube {
+        left: 170px;
+        background: #FF0000;
+      }
+      
+      .header__linkedin {
+        left: 204px;
+        background: #218BEE;
+      }
+      
+      .header__aboutme {
+        left: 238px;
+        background: #676869;
+      }
+      
+      .header__portfolio {
+        left: 272px;
+        background: #2C2D2E;
+      }
+    }
+    
+    .header__socials--minimized2 {
+      width: 297px;
+      height: 39px;
+      
+      position: absolute;
+      bottom: 30px;
+      // Center Horizontal
+      right: 50%;
+      transform: translateX(50%);
+    
+      transition: 300ms ease;
+      
+      & > * {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 7px;
+        
+        border-radius: 8px;
+        
+        transition: 300ms ease;
+      }
+    
+      .header__reddit {
+        left: 0;
+        background: #FF3D00;
+      }
+      
+      .header__facebook {
+        left: 34px;
+        background: #00A3FF;
+      }
+      
+      .header__instagram {
+        left: 68px;
+        background: #BD00FF;
+      }
+      
+      .header__twitter {
+        left: 102px;
+        background: #00FFF0;
+      }
+      
+      .header__github {
+        left: 136px;
+        background: #006FD6;
+      }
+      
+      .header__youtube {
+        left: 170px;
+        background: #FF0000;
+      }
+      
+      .header__linkedin {
+        left: 204px;
+        background: #218BEE;
+      }
+      
+      .header__aboutme {
+        left: 238px;
+        background: #676869;
+      }
+      
+      .header__portfolio {
+        left: 272px;
+        background: #2C2D2E;
+      }
+    }
+    
+    .header__navigation--minimized {
+      width: 330px;
+      height: 40px;
+      
+      position: absolute;
+      top: 80px;
+      // Center Horizontal
+      left: 50%;
+      transform: translateX(-50%);
+      
+      transition: 300ms ease;
+      
+      & > * {
+        height: 38px;
+        position: absolute;
+        top: 2px;
+        
+        font-size: 24px;
+        line-height: 38px;
+        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.06em;
+        
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight3)"
+            : "var(--primaryDark3)"};
+      }
+      
+      .header__home {
+        width: 68px;
+        left: 0;
+      }
+      
+      .header__featured {
+        width: 89px;
+        left: 70px;
+      }
+      
+      .header__stopper {
+        width: 8px;
+        left: 169px;
+      }
+      
+      .header__blog {
+        width: 45px;
+        left: 187px;
+      }
+      
+      .header__portfolio {
+        width: 88px;
+        left: 242px;
+      }
+    }
+    
+    .header__navigation--minimized2 {
+      width: 330px;
+      height: 40px;
+      
+      position: absolute;
+      top: 80px;
+      // Center Horizontal
+      left: 50%;
+      transform: translateX(-50%);
+      
+      transition: 300ms ease;
+      
+      & > * {
+        height: 38px;
+        position: absolute;
+        top: 2px;
+        
+        font-size: 24px;
+        line-height: 38px;
+        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.06em;
+        
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight3)"
+            : "var(--primaryDark3)"};
+      }
+      
+      .header__home {
+        width: 68px;
+        left: 0;
+      }
+      
+      .header__featured {
+        width: 89px;
+        left: 70px;
+      }
+      
+      .header__stopper {
+        width: 8px;
+        left: 169px;
+      }
+      
+      .header__blog {
+        width: 45px;
+        left: 187px;
+      }
+      
+      .header__portfolio {
+        width: 88px;
+        left: 242px;
+      }
+    }
   }
   
   // 320 *.9

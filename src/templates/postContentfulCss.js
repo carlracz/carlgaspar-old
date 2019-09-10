@@ -1,6 +1,6 @@
 /** TABLE OF CONTENTS
  * 1. POSTCONTENTFUL
- * 2. POSTCONTENTFUL_IMAGE
+ * 2. POSTCONTENTFUL IMAGE
  * 3. POSTCONTENTFUL CONTAINER
  * 4. POSTCONTENTFUL NAVIGATION
  * 5. EMPHASIS
@@ -78,10 +78,10 @@ const PostContentfulCss = createGlobalStyle`
         margin-right: 10px;
         box-shadow: none;
         border-radius: 2px;
-        color: var(--primaryLight);
-        background: var(--tags);
+        color: var(--primaryLight); // Permanent color
+        background: var(--tags); // Permanent color
         
-        transition: 300ms ease; // For Theming
+        transition: 300ms ease; // For Hover
       }
       
       & > *:hover {
@@ -170,6 +170,8 @@ const PostContentfulCss = createGlobalStyle`
   .--emphasis {
     color: ${props =>
       props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+      
+    transition: var(--themingTiming); // For Theming
   }
   /** EMPHASIS */
   

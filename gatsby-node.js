@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allContentfulBlogPost {
+        allContentfulBlog {
           edges {
             node {
               slug
@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog pages.
-  const posts = result.data.allContentfulBlogPost.edges
+  const posts = result.data.allContentfulBlog.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node

@@ -100,6 +100,7 @@ class Header extends Component {
               <div className="header__stopper">•</div>
               <div className="header__blog">Blog</div>
               <div className="header__portfolio">Portfolio</div>
+              <div className="shapeshifter play"></div>
             </div>
           </div>
   

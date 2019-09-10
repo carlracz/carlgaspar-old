@@ -184,7 +184,7 @@ class Footer extends Component {
             </Animated>
           </div>
           
-          <div className="footer__middle">
+          {/*<div className="footer__middle">
             <div className="footer__usefulLinks">
               <p className="footer__usefulLinks--header">Useful Links</p>
               <p><Link>Home</Link></p>
@@ -220,7 +220,7 @@ class Footer extends Component {
               <p><Link>--</Link></p>
               <p><Link>--</Link></p>
             </div>
-          </div>
+          </div>*/}
           
           
           

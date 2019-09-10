@@ -3,18 +3,18 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import { rhythm } from "../../utils/typography"
 
 import storage from "local-storage-fallback";
 
-import Header from "../components/header";
-import Featured from "../components/featured";
-import Utilities from "../components/utilities";
-import Footer from "../components/footer";
-import IndexCssHolder from "../components/css/indexCssHolder"
+import Header from "../../components/header";
+import Featured from "../../components/featured";
+import Utilities from "../../components/utilities";
+import Footer from "../../components/footer";
+import IndexCssHolder from "../../components/css/indexCssHolder"
 
 class Index extends React.Component {
   state = {
@@ -50,7 +50,7 @@ class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const allContentfulPage = data.allContentfulPage.edges
+    const allContentfulPage = data.allContentfulPage.edges/*.node.title === "Featured" ? data.allContentfulPage.edges.node.post : ""*/
     
     return (
       <>

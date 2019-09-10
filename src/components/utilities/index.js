@@ -7,8 +7,7 @@ import { Animated } from "react-animated-css";
 
 class Utilities extends Component {
   state = {
-    isUtilitiesActive: ""
-  };
+    isUtilitiesActive: false  };
 
   componentDidMount = () => {
       window.addEventListener('scroll', this.handleScroll);

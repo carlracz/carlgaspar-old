@@ -1,8 +1,8 @@
 /** TABLE OF CONTENTS
- * 1. POSTCONTENTFUL
- * 2. POSTCONTENTFUL_IMAGE
- * 3. POSTCONTENTFUL CONTAINER
- * 4. POSTCONTENTFUL NAVIGATION
+ * 1. FEATURED
+ * 2. FEATURED CONTAINER
+ * 3. FEATURED POSTS
+ * 4. FEATURED POST
  * 5. EMPHASIS
  * 6. RESPONSIVE
  */
@@ -14,10 +14,16 @@ const MainbodyCss = createGlobalStyle`
   .featured {
     min-height: 100%;
     position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background: ${props =>
+      props.theme === "light"
+        ? "var(--secondaryLight)"
+        : "var(--secondaryDark)"};
+        
+    transition: var(--themingTiming); // For Theming
   }
   /** FEATURED */
   
@@ -26,7 +32,7 @@ const MainbodyCss = createGlobalStyle`
     width: 100%;
     max-width: 1050px;
     flex-grow: 1;
-    margin: 0px auto auto;
+    margin: 0 auto auto;
     padding: 220px 1.5em 242px;
   }
   /** FEATURED CONTAINER */
@@ -37,27 +43,36 @@ const MainbodyCss = createGlobalStyle`
     -webkit-box-pack: justify;
     justify-content: space-between;
     flex-flow: row wrap;
-    margin: 0px auto;
+    margin: 0 auto;
     list-style: none;
   }
   /** FEATURED POSTS */
   
   /** FEATURED POST */
   .featured__post {
-    position: relative;
     width: 100%;
-    border: 1px solid ${props => props.theme === "light" ? "var(--primaryLight4)" : "var(--primaryDark4)"};
+    position: relative;
+    margin: 0 0 1em;
     border-radius: 2px;
-    margin: 0px 0px 1em;
+    border: 1px solid ${props =>
+      props.theme === "light" ? "var(--primaryLight4)" : "var(--primaryDark4)"};
+    
+    transition: var(--themingTiming); // For Theming
+    
+    .gatsby-image-wrapper {
+      height: 0;
+      padding-bottom: 60%;
+    }
     
     .featured__contentModel {
       position: absolute;
-      top: 0px;
-      right: 0px;
-      padding: 0px 15px;
-      color: var(--primaryLight);
-      background: var(--tagsDark);
+      top: 0;
+      right: 0;
+      padding: 0 15px;
+      color: var(--primaryLight); // Permanent color
+      background: var(--tags); // Permanent color
       
+      transition: 300ms ease; // For Hover
     }
     
     .featured__postTitle {
@@ -66,28 +81,46 @@ const MainbodyCss = createGlobalStyle`
       font-weight: 600;
       text-transform: capitalize;
       margin: 1rem 1rem 0.5rem;
-      color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+      color: ${props =>
+        props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+        
+      transition: var(--themingTiming); // For Theming
     }
     
     .featured__postDetails {
       .featured__postPublished {
-        margin: 0px 1rem 0rem;
-        font-family: Montserrat,sans-serif;
-        color: ${props => props.theme === "light" ? "var(--primaryLight2)" : "var(--primaryDark2)"};
+        margin: 0 1rem 0rem;
+        font-family: Montserrat, sans-serif;
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight2)"
+            : "var(--primaryDark2)"};
+            
+        transition: var(--themingTiming); // For Theming
       }
       
       .featured__postTimeToRead {
-        margin: 0px 1rem 0.5rem;
-        font-family: Montserrat,sans-serif;
-        color: ${props => props.theme === "light" ? "var(--primaryLight2)" : "var(--primaryDark2)"};
+        margin: 0 1rem 0.5rem;
+        font-family: Montserrat, sans-serif;
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight2)"
+            : "var(--primaryDark2)"};
+            
+        transition: var(--themingTiming); // For Theming
       }
     }
     
     .featured__postSubtitle {
       line-height: 1.6;
-      margin: 0px 1rem 1rem;
-      font-family: Montserrat,sans-serif;
-      color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+      margin: 0 1rem 1rem;
+      font-family: Montserrat, sans-serif;
+      color: ${props =>
+        props.theme === "light"
+          ? "var(--tertiaryLight)"
+          : "var(--tertiaryDark)"};
+          
+      transition: var(--themingTiming); // For Theming
     }
     
     &:nth-child(1) {
@@ -95,29 +128,30 @@ const MainbodyCss = createGlobalStyle`
     }
     
     &:nth-child(1n+2) {
-      flex: 0 0 32%;
+      flex: 0 0 100%;
     }
-      
-    /*&:nth-child(1n+5) {
-      &:nth-child(odd) {
-        flex: 0 0 74%;
+    
+    &:hover {
+      .featured__contentModel {
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryDark)"
+            : "var(--primaryLight)"};
+        background: ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
       }
-      
-      &:nth-child(even) {
-        flex: 0 0 24%;
-      }
-    }*/
+    }
   }
   /** FEATURED POST */
   
-  .gatsby-image-wrapper {
-    height: 0px;
-    padding-bottom: 60%;
-  }
-  
   /** EMPHASIS */
   .--emphasis {
-    color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+    color: ${props =>
+      props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+      
+      transition: var(--themingTiming); // For Theming
   }
   /** EMPHASIS */
   
@@ -125,21 +159,30 @@ const MainbodyCss = createGlobalStyle`
   
   /** RESPONSIVE */
   @media only screen and (min-width: 35em) {
-    .gatsby-image-wrapper {
-      padding-bottom: 40%;
+    .featured__post:nth-child(1) {
+      .gatsby-image-wrapper {
+        padding-bottom: 40%;
+      }
     }
     
-    .featured__postDetails:nth-child(2) {
+    .featured__post:nth-child(1n+2) {
+      flex: 0 0 49%;
+      
       .gatsby-image-wrapper {
-        height: 0px;
         padding-bottom: 60%;
       }
     }
   }
   
-  // 320 *.9
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
-    
+  @media only screen and (min-width: 50em) {
+    .featured__post:nth-child(1n+2) {
+      flex: 0 0 32%;
+      
+      .gatsby-image-wrapper {
+        padding-bottom: 60%;
+      }
+    }
+  }
 `;
 
 export default MainbodyCss;
