@@ -13,10 +13,9 @@ class Featured extends Component {
               // It was moved inside another node.
               node = node.node
               if(node.title === "Featured") {
-                {node.post.map(post => {
+                node.post.map(post => {
                   return (
                     <li className="featured__post" key={post.uniqueId}>
-                      {console.log(post)}
                       <Link style={{ boxShadow: `none` }} to={`/${post.slug}`}>
                         <Img fluid={post.image.fluid} />
                         <p className="featured__contentModel">
@@ -40,7 +39,7 @@ class Featured extends Component {
                       </Link>
                     </li>
                   )
-                })}
+                })
               }
             })}
           </ul>
