@@ -300,6 +300,7 @@ const HeaderCss = createGlobalStyle`
       align-items: center;
       text-align: center;
       letter-spacing: -0.06em;
+      box-shadow: none;
       
       color: ${props =>
         props.theme === "light"

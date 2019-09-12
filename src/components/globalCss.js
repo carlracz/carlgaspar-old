@@ -10,6 +10,7 @@ const GlobalCss = createGlobalStyle`
     --tertiaryLight: #0069ff;
     --runningLight: #fafafa;
     --runningLight2: #dedede;
+    --postLight: #f1f1f1;
     
     --primaryDark: #ffffff;
     --primaryDark2: #b1b1b1;
@@ -19,10 +20,15 @@ const GlobalCss = createGlobalStyle`
     --tertiaryDark: #ff9400;
     --runningDark: #1d1d1d;
     --runningDark2: #000000;
+    --postDark: #484848;
     
     --tags: #f1f1f1;
     
     --themingTiming: 500ms ease;
+  }
+  
+  a {
+    text-decoration: none;
   }
   
   * {

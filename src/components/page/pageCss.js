@@ -1,17 +1,17 @@
 /** TABLE OF CONTENTS
- * 1. FEATURED
- * 2. FEATURED CONTAINER
- * 3. FEATURED POSTS
- * 4. FEATURED POST
+ * 1. PAGE
+ * 2. PAGE CONTAINER
+ * 3. PAGE POSTS
+ * 4. PAGE POST
  * 5. EMPHASIS
  * 6. RESPONSIVE
  */
 
 import { createGlobalStyle } from "styled-components";
 
-const MainbodyCss = createGlobalStyle`
-  /** FEATURED */
-  .featured {
+const PageCss = createGlobalStyle`
+  /** PAGE */
+  .page {
     min-height: 100%;
     position: absolute;
     top: 0;
@@ -25,20 +25,20 @@ const MainbodyCss = createGlobalStyle`
         
     transition: var(--themingTiming); // For Theming
   }
-  /** FEATURED */
+  /** PAGE */
   
-  /** FEATURED CONTAINER */
-  .featured__container {
+  /** PAGE CONTAINER */
+  .page__container {
     width: 100%;
     max-width: 1050px;
     flex-grow: 1;
     margin: 0 auto auto;
     padding: 220px 1.5em 242px;
   }
-  /** FEATURED CONTAINER */
+  /** PAGE CONTAINER */
   
-  /** FEATURED POSTS */
-  .featured__posts {
+  /** PAGE POSTS */
+  .page__posts {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -46,12 +46,13 @@ const MainbodyCss = createGlobalStyle`
     margin: 0 auto;
     list-style: none;
   }
-  /** FEATURED POSTS */
+  /** PAGE POSTS */
   
-  /** FEATURED POST */
-  .featured__post {
+  /** PAGE POST */
+  .page__post {
     width: 100%;
     position: relative;
+    flex: 0 0 100%;
     margin: 0 0 1em;
     border-radius: 2px;
     border: 1px solid ${props =>
@@ -64,18 +65,7 @@ const MainbodyCss = createGlobalStyle`
       padding-bottom: 60%;
     }
     
-    .featured__contentModel {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 0 15px;
-      color: var(--primaryLight); // Permanent color
-      background: var(--tags); // Permanent color
-      
-      transition: var(--themingTiming); // For Theming and Hover
-    }
-    
-    .featured__postTitle {
+    .page__postTitle {
       font-size: 1.5em;
       font-family: Montserrat,sans-serif;
       font-weight: 600;
@@ -87,8 +77,8 @@ const MainbodyCss = createGlobalStyle`
       transition: var(--themingTiming); // For Theming
     }
     
-    .featured__postDetails {
-      .featured__postPublished {
+    .page__postDetails {
+      .page__postPublished {
         margin: 0 1rem 0rem;
         font-family: Montserrat, sans-serif;
         color: ${props =>
@@ -99,7 +89,7 @@ const MainbodyCss = createGlobalStyle`
         transition: var(--themingTiming); // For Theming
       }
       
-      .featured__postTimeToRead {
+      .page__postTimeToRead {
         margin: 0 1rem 0.5rem;
         font-family: Montserrat, sans-serif;
         color: ${props =>
@@ -111,7 +101,7 @@ const MainbodyCss = createGlobalStyle`
       }
     }
     
-    .featured__postSubtitle {
+    .page__postSubtitle {
       line-height: 1.6;
       margin: 0 1rem 1rem;
       font-family: Montserrat, sans-serif;
@@ -123,33 +113,14 @@ const MainbodyCss = createGlobalStyle`
       transition: var(--themingTiming); // For Theming
     }
     
-    &:nth-child(1) {
-      flex: 0 0 100%;
-    }
-    
-    &:nth-child(1n+2) {
-      flex: 0 0 100%;
-    }
-    
     &:hover {
       background: ${props =>
         props.theme === "light"
           ? "var(--postLight)"
           : "var(--postDark)"};
-      
-      .featured__contentModel {
-        color: ${props =>
-          props.theme === "light"
-            ? "var(--primaryDark)"
-            : "var(--primaryLight)"};
-        background: ${props =>
-          props.theme === "light"
-            ? "var(--tertiaryLight)"
-            : "var(--tertiaryDark)"};
-      }
     }
   }
-  /** FEATURED POST */
+  /** PAGE POST */
   
   /** EMPHASIS */
   .--emphasis {
@@ -164,13 +135,7 @@ const MainbodyCss = createGlobalStyle`
   
   /** RESPONSIVE */
   @media only screen and (min-width: 35em) {
-    .featured__post:nth-child(1) {
-      .gatsby-image-wrapper {
-        padding-bottom: 40%;
-      }
-    }
-    
-    .featured__post:nth-child(1n+2) {
+    .page__post {
       flex: 0 0 49%;
       
       .gatsby-image-wrapper {
@@ -180,7 +145,7 @@ const MainbodyCss = createGlobalStyle`
   }
   
   @media only screen and (min-width: 50em) {
-    .featured__post:nth-child(1n+2) {
+    .page__post {
       flex: 0 0 32%;
       
       .gatsby-image-wrapper {
@@ -190,4 +155,4 @@ const MainbodyCss = createGlobalStyle`
   }
 `;
 
-export default MainbodyCss;
+export default PageCss;

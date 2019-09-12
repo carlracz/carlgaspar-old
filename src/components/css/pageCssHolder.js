@@ -2,18 +2,18 @@ import React from "react"
 
 import GlobalCss from "./../globalCss"
 import HeaderCss from "../header/headerCss"
-import PostContentful from "../../templates/postContentfulCss"
+import PageCss from "../page/pageCss"
 import UtilitiesCss from "../utilities/utilitiesCss"
 import FooterCss from "../footer/footerCss"
 
-const PostContentfulCssHolder = (props) => (
+const IndexCssHolder = (props) => (
   <>
     <GlobalCss theme={props.theme} />
     <HeaderCss theme={props.theme} />
-    <PostContentful theme={props.theme} />
+    <PageCss theme={props.theme} />
     <UtilitiesCss theme={props.theme} />
     <FooterCss theme={props.theme} />
   </>
 );
 
-export default PostContentfulCssHolder;
+export default IndexCssHolder;

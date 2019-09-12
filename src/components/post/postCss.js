@@ -1,17 +1,17 @@
 /** TABLE OF CONTENTS
- * 1. POSTCONTENTFUL
- * 2. POSTCONTENTFUL IMAGE
- * 3. POSTCONTENTFUL CONTAINER
- * 4. POSTCONTENTFUL NAVIGATION
+ * 1. POST
+ * 2. POST IMAGE
+ * 3. POST CONTAINER
+ * 4. POST NAVIGATION
  * 5. EMPHASIS
  * 6. RESPONSIVE
  */
 
 import { createGlobalStyle } from "styled-components";
 
-const PostContentfulCss = createGlobalStyle`
-  /** 1. POSTCONTENTFUL */
-  .postContentful {
+const PostCss = createGlobalStyle`
+  /** 1. POST */
+  .post {
     min-height: 100%;
     position: absolute;
     top: 0;
@@ -25,10 +25,10 @@ const PostContentfulCss = createGlobalStyle`
     
     transition: var(--themingTiming); // For Theming
   }
-  /** POSTCONTENTFUL */
+  /** POST */
   
-  /** 2. POSTCONTENTFUL IMAGE */
-  .postContentful__image {
+  /** 2. POST IMAGE */
+  .post__image {
     min-height: 300px;
     position: relative;
     padding-top: 205px;
@@ -43,7 +43,7 @@ const PostContentfulCss = createGlobalStyle`
       background-color: rgba(0, 0, 0, 0.5); // Darker image
     }
     
-    .postContentful__title {
+    .post__title {
       width: 100%;
       position: absolute;
       top: 50%;
@@ -57,18 +57,18 @@ const PostContentfulCss = createGlobalStyle`
       color: white; // Always white
     }
   }
-  /** POSTCONTENTFUL IMAGE */
+  /** POST IMAGE */
   
-  /** 3. POSTCONTENTFUL CONTAINER */
-  .postContentful__container {
-    width: 100%;
+  /** 3. POST CONTAINER */
+  .post__container {
+    //width: 100%;
     max-width: 1050px;
     margin: 0 auto auto;
     padding: 2.5em 1.5em 242px;
     -webkit-box-flex: 1;
     flex-grow: 1;
     
-    .postContentful__tags {
+    .post__tags {
       width: 100%;
       max-width: 650px;
       margin: 0 auto 1em;
@@ -85,7 +85,6 @@ const PostContentfulCss = createGlobalStyle`
       }
       
       & > *:hover {
-        border-radius: 10px;
         border-bottom: 2px solid ${props =>
           props.theme === "light"
             ? "var(--primaryLight)"
@@ -101,7 +100,7 @@ const PostContentfulCss = createGlobalStyle`
       }
     }
     
-    .postContentful__details {
+    .post__details {
       max-width: 650px;
       margin: 0 auto 2em;
       
@@ -113,22 +112,22 @@ const PostContentfulCss = createGlobalStyle`
         
         transition: var(--themingTiming); // For Theming
         
-        .postContentful__published {
+        .post__published {
           cursor: default;
           
-          &:hover .postContentful__published--tooltiptext {
+          &:hover .post__published--tooltiptext {
             display: unset;
           }
         }
       }
     }
     
-    .postContentful__post {
+    .post__post {
       max-width: 650px;
-      margin: -10px auto 0;
+      margin: 0 auto 0;
       
       * {
-        font-family: arial;
+        font-family: Century Gothic;
         color: ${props =>
           props.theme === "light"
             ? "var(--primaryLight)"
@@ -138,10 +137,10 @@ const PostContentfulCss = createGlobalStyle`
       }
     }
   }
-  /** POSTCONTENTFUL CONTAINER */
+  /** POST CONTAINER */
   
-  /** 4. POSTCONTENTFUL NAVIGATION */
-  .postContentful__navigation {
+  /** 4. POST NAVIGATION */
+  .post__navigation {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -157,14 +156,11 @@ const PostContentfulCss = createGlobalStyle`
       transition: var(--themingTiming); // For Theming and Hover (Combined)
       
       &:hover {
-        box-shadow: 0 1px 0 0 ${props =>
-          props.theme === "light"
-            ? "var(--secondaryLight)"
-            : "var(--secondaryDark)"};
+        color: red;
       }
     }
   }
-  /** POSTCONTENTFUL NAVIGATION */
+  /** POST NAVIGATION */
   
   /** 5. EMPHASIS */
   .--emphasis {
@@ -185,4 +181,4 @@ const PostContentfulCss = createGlobalStyle`
   }
 `;
 
-export default PostContentfulCss;
+export default PostCss;

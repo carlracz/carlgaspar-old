@@ -1,3 +1,4 @@
+const config = require('./src/utils/siteConfig')
 const dotenv = require("dotenv");
 
 if (process.env.NODE_ENV !== "production") {
@@ -6,10 +7,10 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `-`,
-    author: `Carl Gaspar`,
-    description: `My Blog.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: config.siteTitle,
+    author: config.author,
+    description: config.siteDescription,
+    siteUrl: config.siteUrl,
     social: {
       twitter: `carlracz`,
     },
@@ -74,12 +75,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     {
       resolve: `gatsby-source-contentful`,
       options: {

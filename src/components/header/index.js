@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 
-
 class Header extends Component {
   state = {
     header: "",
@@ -95,12 +94,13 @@ class Header extends Component {
             
             {/* Included here instead of separate container because NAVIGATION is related to the NAME */}
             <div className={"header__navigation " + this.state.headerNavigation}>
-              <div className="header__home">Home</div>
-              <div className="header__featured">Featured</div>
+              <Link className="header__home" to="/">Home</Link>
+              <Link className="header__featured" to="/">Featured</Link>
               <div className="header__stopper">•</div>
-              <div className="header__blog">Blog</div>
-              <div className="header__portfolio">Portfolio</div>
-              <div className="shapeshifter play"></div>
+              <Link className="header__blog" to="/blog">Blog</Link>
+              <Link className="header__portfolio" to="/portfolio">Portfolio</Link>
+              <p><div className="shapeshifter play"></div>
+              <div className="shapeshifter play"></div></p>
             </div>
           </div>
   
