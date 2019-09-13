@@ -12,12 +12,12 @@ import config from "../utils/siteConfig";
 import storage from "local-storage-fallback";
 
 import Header from "../components/header";
-import Page from "../components/page";
+import Tag from "../components/tag";
 import Utilities from "../components/utilities";
 import Footer from "../components/footer";
-import PageCssHolder from "../components/css/pageCssHolder"
+import TagCssHolder from "../components/css/tagCssHolder"
 
-class BlogTemplate extends React.Component {
+class TagTemplate extends React.Component {
   state = {
     theme: "light"
   }
@@ -49,56 +49,54 @@ class BlogTemplate extends React.Component {
   /** THEME */
   
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const allContentfulPage = data.allContentfulBlog.edges
-    
+    const post = this.props.data.contentfulTag
+    const siteTitle = this.props.data.site.siteMetadata.title
+      
     return (
       <>
       {/* <Layout location={this.props.location} title={siteTitle}> */}
         <SEO
           title={
-            config.siteTitle + ` - Blog`
+            config.siteTitle + ` - Tag`
           }
           description={config.siteDescription}
         />
         <Header />
-        <Page 
-          allContentfulPage={allContentfulPage}
+        <Tag 
+          post={post}
           footer={<Footer utilities={<Utilities setTheme={this.setTheme} />} />}
         />
-        <PageCssHolder theme={this.state.theme} />
+        <TagCssHolder theme={this.state.theme} />
       {/* </Layout> */}
       </>
     )
   }
 }
 
-export default BlogTemplate
+export default TagTemplate
 
 export const pageQuery = graphql`
-  query {
+  query ContentfulTagBySlug($slug: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlog {
-      edges {
-        node {
-          title
-          published(formatString: "MMMM DD, YYYY")
-          lastUpdated(formatString: "MMMM DD, YYYY")
-          timeToRead
-          subtitle
-          slug
-          image {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
+    contentfulTag(slug: { eq: $slug }) {
+      title
+      blog {
+        title
+        published(formatString: "MMMM DD, YYYY")
+        lastUpdated(formatString: "MMMM DD, YYYY")
+        timeToRead
+        subtitle
+        slug
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
           }
-          tier
         }
+        tier
       }
     }
   }

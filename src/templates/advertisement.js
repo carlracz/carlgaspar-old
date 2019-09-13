@@ -17,7 +17,7 @@ import Utilities from "../components/utilities";
 import Footer from "../components/footer";
 import PageCssHolder from "../components/css/pageCssHolder"
 
-class Advertisement extends React.Component {
+class AdvertisementTemplate extends React.Component {
   state = {
     theme: "light"
   }
@@ -74,7 +74,7 @@ class Advertisement extends React.Component {
   }
 }
 
-export default Advertisement
+export default AdvertisementTemplate
 
 export const pageQuery = graphql`
   query {
@@ -96,9 +96,6 @@ export const pageQuery = graphql`
             fluid {
               ...GatsbyContentfulFluid
             }
-          }
-          tags {
-            title
           }
           tier
         }

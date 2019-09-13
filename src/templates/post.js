@@ -16,7 +16,7 @@ import PostCssHolder from "../components/css/postCssHolder";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
-class BlogPost extends React.Component {
+class PostTemplate extends React.Component {
   state = {
     theme: "light"
   };
@@ -69,10 +69,10 @@ class BlogPost extends React.Component {
   }
 }
 
-export default BlogPost;
+export default PostTemplate
 
 export const pageQuery = graphql`
-  query ContentfulBlogPostBySlug($slug: String!) {
+  query ContentfulPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

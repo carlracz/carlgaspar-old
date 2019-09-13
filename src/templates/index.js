@@ -18,7 +18,7 @@ import Utilities from "../components/utilities";
 import Footer from "../components/footer";
 import IndexCssHolder from "../components/css/indexCssHolder";
 
-class Index extends React.Component {
+class IndexTemplate extends React.Component {
   state = {
     theme: "light"
   };
@@ -55,8 +55,9 @@ class Index extends React.Component {
     let allContentfulPage = data.allContentfulPage.edges;
 
     allContentfulPage.map(page => {
-      if (page.node.title === "Featured") {
-        allContentfulPage = page.node.post;
+      page = page.node
+      if (page.title === "Featured") {
+        allContentfulPage = page.post;
         // Sorting by date. DESC
         allContentfulPage = allContentfulPage.sort(
           (a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated)
@@ -89,7 +90,7 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default IndexTemplate
 
 export const pageQuery = graphql`
   query {
@@ -114,9 +115,6 @@ export const pageQuery = graphql`
                 fluid {
                   ...GatsbyContentfulFluid
                 }
-              }
-              tags {
-                title
               }
               tier
             }

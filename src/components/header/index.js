@@ -99,8 +99,8 @@ class Header extends Component {
               <div className="header__stopper">•</div>
               <Link className="header__blog" to="/blog">Blog</Link>
               <Link className="header__portfolio" to="/portfolio">Portfolio</Link>
-              <p><div className="shapeshifter play"></div>
-              <div className="shapeshifter play"></div></p>
+              <p className="shapeshifter play"></p>
+              <p className="shapeshifter play"></p>
             </div>
           </div>
   

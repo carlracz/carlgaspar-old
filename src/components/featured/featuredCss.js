@@ -29,7 +29,7 @@ const MainbodyCss = createGlobalStyle`
   
   /** FEATURED CONTAINER */
   .featured__container {
-    width: 100%;
+    //width: 100%;
     max-width: 1050px;
     flex-grow: 1;
     margin: 0 auto auto;
@@ -45,6 +45,7 @@ const MainbodyCss = createGlobalStyle`
     flex-flow: row wrap;
     margin: 0 auto;
     list-style: none;
+    padding-inline-start: 0;
   }
   /** FEATURED POSTS */
   

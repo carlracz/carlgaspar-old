@@ -31,7 +31,7 @@ const PostCss = createGlobalStyle`
   .post__image {
     min-height: 300px;
     position: relative;
-    padding-top: 205px;
+    margin-top: 205px;
     
     .gatsby-image-wrapper {
       min-height: 300px;
@@ -45,10 +45,11 @@ const PostCss = createGlobalStyle`
     
     .post__title {
       width: 100%;
+      max-width: 650px;
       position: absolute;
-      top: 50%;
+      top: 42%;
       left: 50%;
-      transform: translate(-50%, 50%);
+      transform: translate(-50%, -50%);
       padding: 0 1rem;
       
       font-size: 3em;

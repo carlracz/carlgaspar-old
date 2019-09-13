@@ -24,7 +24,7 @@ const GlobalCss = createGlobalStyle`
     
     --tags: #f1f1f1;
     
-    --themingTiming: 500ms ease;
+    --themingTiming: 400ms ease;
   }
   
   a {

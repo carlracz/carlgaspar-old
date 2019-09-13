@@ -9,7 +9,7 @@
 
 import { createGlobalStyle } from "styled-components";
 
-const PageCss = createGlobalStyle`
+const TagCss = createGlobalStyle`
   /** PAGE */
   .page {
     min-height: 100%;
@@ -156,4 +156,4 @@ const PageCss = createGlobalStyle`
   }
 `;
 
-export default PageCss;
+export default TagCss;
