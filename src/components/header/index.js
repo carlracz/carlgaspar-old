@@ -107,12 +107,12 @@ class Header extends Component {
           <div className={"header__socials " + this.state.headerSocials}>
             <a
               href="asd"
-              className="header__reddit"
+              className="header__reddit shapeshifter play"
               target="_blank"
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__facebook"
@@ -120,7 +120,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__instagram"
@@ -128,7 +128,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__twitter"
@@ -136,7 +136,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__github"
@@ -144,7 +144,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__youtube"
@@ -152,7 +152,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__linkedin"
@@ -160,7 +160,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__aboutme"
@@ -168,7 +168,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
             <a
               href="asd"
               className="header__portfolio"
@@ -176,7 +176,7 @@ class Header extends Component {
               rel="noopener noreferrer"
             >
               
-            </a>{" "}
+            </a>
           </div>
         </div>
       </div>

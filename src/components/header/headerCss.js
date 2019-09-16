@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-import aa from "./sprite_60fps.svg"
+import bb from "./sprite_60fps.svg"
+import aa from "./facebook.svg"
 
 const HeaderCss = createGlobalStyle`
   /** HEADER */
@@ -77,11 +78,9 @@ const HeaderCss = createGlobalStyle`
   @keyframes play60 {
     0% {
       background-position: 0px 0px;
-      width: 36px;
     }
     100% {
       background-position: -3312px 0px;
-      width: 138px;
     }
   }
   .shapeshifter {
@@ -91,18 +90,16 @@ const HeaderCss = createGlobalStyle`
     width: 138px;
     height: 36px;
     background-repeat: no-repeat;
-    background-image: url(${aa});
+    background-image: url(${bb});
   }
   .shapeshifter.play {
     animation-name: play60;
   }
   
+  
 
   /** SOCIALS */
   .header__socials {
-    width: 297px;
-    height: 39px;
-    
     position: absolute;
     bottom: 74px;
     // Center Horizontal
@@ -112,59 +109,56 @@ const HeaderCss = createGlobalStyle`
     transition: 300ms ease;
     
     & > * {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      top: 7px;
-      
+      padding: 2px 15px;
+      margin: 0 5px 0 5px;
+    
       border-radius: 8px;
-      
       transition: 300ms ease;
     }
   
     .header__reddit {
-      left: 0;
-      background: #FF3D00;
+      //background-repeat: no-repeat;
+      //background-image: url(${bb});
     }
     
     .header__facebook {
-      left: 34px;
-      background: #00A3FF;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__instagram {
-      left: 68px;
-      background: #BD00FF;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__twitter {
-      left: 102px;
-      background: #00FFF0;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__github {
-      left: 136px;
-      background: #006FD6;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__youtube {
-      left: 170px;
-      background: #FF0000;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__linkedin {
-      left: 204px;
-      background: #218BEE;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__aboutme {
-      left: 238px;
-      background: #676869;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
     
     .header__portfolio {
-      left: 272px;
-      background: #2C2D2E;
+      background-repeat: no-repeat;
+      background-image: url(${aa});
     }
   }
   

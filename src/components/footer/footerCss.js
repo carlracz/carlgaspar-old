@@ -5,9 +5,9 @@ const FooterCss = createGlobalStyle`
   .footer {
     position: absolute;
     height: 200px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 0 1.5em;
     margin-bottom: 40px;
     
@@ -54,10 +54,8 @@ const FooterCss = createGlobalStyle`
     transition: 300ms ease;
     
     .footer__summary {
-      position: absolute;
-      top: 60px;
-      left: 5px;
       width: 350px;
+      margin: -30px 0 0 5px;
       font-size: 14px;
       text-align: left;
       line-height: 1;
@@ -68,108 +66,62 @@ const FooterCss = createGlobalStyle`
   
   /** SOCIALS */
   .footer__socials {
-    width: 297px;
-    height: 39px;
-    
-    position: absolute;
-    top: 145px;
-    left: 0px;
+    width: 100%;
+    //height: 34px; // temporary
     
     & > * {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      top: 7px;
+      padding-right: 34px;
+      margin-right: 5px;
       
+      //width: 24px;
+      //height: 24px;
+      
+      //position: absolute;
+      
+      //margin-right: 34px;
       border-radius: 8px;
-      
       transition: 300ms ease;
     }
   
     .footer__reddit {
-      left: 0px;
       background: #FF3D00;
     }
     
     .footer__facebook {
-      left: 34px;
       background: #00A3FF;
     }
     
     .footer__instagram {
-      left: 68px;
       background: #BD00FF;
     }
     
     .footer__twitter {
-      left: 102px;
       background: #00FFF0;
     }
     
     .footer__github {
-      left: 136px;
       background: #006FD6;
     }
     
     .footer__youtube {
-      left: 170px;
       background: #FF0000;
     }
     
     .footer__linkedin {
-      left: 204px;
       background: #218BEE;
     }
     
     .footer__aboutme {
-      left: 238px;
       background: #676869;
     }
     
     .footer__portfolio {
-      left: 272px;
       background: #2C2D2E;
     }
   }
   /** SOCIALS */
   
-  /** CREDIT */
-  .footer__credit {
-    height: 40px;
-    width: 100%;
-    
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
-    
-    transition: 300ms ease;
-    
-    .footer__creditname {
-      position: absolute;
-      top: 3px;
-      // Center Horizontal
-      left: 50%;
-      transform: translateX(-50%);
-      
-      font-size: 16px;
-      line-height: 38px;
-      
-      display: flex;
-      align-items: center;
-      text-align: center;
-      letter-spacing: -0.06em;
-      
-      color: ${props => props.theme === "light" ? "var(--primaryLight3)" : "var(--primaryDark3)"};
-    }
-  }
   
-  .footer__credit--minimize {
-    background: ${props => props.theme === "light" ? "var(--runningLight2)" : "var(--runningDark2)"};
-    box-shadow: 0px -8px 5px #aaaaaa2e;
-  }
-  /** CREDIT */
   
   /** FOOTER RIGHT */
   .footer__right {
@@ -298,13 +250,13 @@ const FooterCss = createGlobalStyle`
     -webkit-box-pack: justify;
     justify-content: space-between;
     flex-flow: row wrap;
-    margin: 0px auto;
+    margin: 0 auto;
   }
   
   .footer__left {
     flex: 0 0 32%;
     position: relative;
-    margin: 0px 0px 1em;
+    margin: 0 0 1em;
     width: 100%;
     height: 100%;
   }
@@ -320,10 +272,47 @@ const FooterCss = createGlobalStyle`
   .footer__right {
     flex: 0 0 32%;
     position: relative;
-    margin: 0px 0px 1em;
+    margin: 0 0 1em;
     width: 100%;
     height: 100%;
   }
+  
+  /** CREDIT */
+  .footer__credit {
+    height: 40px;
+    width: 100%;
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    
+    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    
+    transition: 300ms ease;
+    
+    .footer__creditname {
+      position: absolute;
+      top: 53%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      font-size: 16px;
+      line-height: 38px;
+      
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: -0.06em;
+      
+      color: ${props => props.theme === "light" ? "var(--primaryLight3)" : "var(--primaryDark3)"};
+    }
+  }
+  
+  .footer__credit--minimize {
+    background: ${props => props.theme === "light" ? "var(--runningLight2)" : "var(--runningDark2)"};
+    box-shadow: 0px -8px 5px #aaaaaa2e;
+  }
+  /** CREDIT */
   
   /** EMPHASIS */
   .--emphasis {

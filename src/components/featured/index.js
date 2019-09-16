@@ -1,16 +1,19 @@
-import React, { Component } from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 class Featured extends Component {
   render() {
+    const { allContentfulPage } = this.props
+    const { footer } = this.props
+    
     return (
       <div className="featured">
         <div className="featured__container">
           <ul className="featured__posts">
-            {this.props.allContentfulPage.map(post => {
+            {allContentfulPage.map(post => {
               return (
-                <Link className="featured__post" key={post.uniqueId} style={{ boxShadow: `none` }} to={post.slug}>
+                <Link className="featured__post" key={post.uniqueId} to={post.slug}>
                   <li>
                     <Img fluid={post.image.fluid} />
                     <p className="featured__contentModel">
@@ -37,10 +40,10 @@ class Featured extends Component {
             })}
           </ul>
         </div>
-        {this.props.footer}
+        {footer}
       </div>
-    );
+    )
   }
 }
 
-export default Featured;
+export default Featured

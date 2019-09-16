@@ -4,31 +4,32 @@ import Img from "gatsby-image";
 
 class Tag extends Component {
   render() {
-    const { post } = this.props;
-    
+    const { contentfulTag } = this.props;
+    const tag = contentfulTag;
+
     return (
       <div className="page">
         <div className="page__container">
           <ul className="page__posts">
-            <h1>{post.title}</h1>
-            {post.blog.map(post => {
+            <h1>{tag.title}</h1>
+            {tag.blog.map(tag => {
               return (
-                <Link className="page__post" key={post.uniqueId} style={{ boxShadow: `none` }} to={post.slug}>
+                <Link className="page__post" key={tag.uniqueId} to={tag.slug}>
                   <li>
-                    <Img fluid={post.image.fluid} />
-                    <h2 className="page__postTitle">{post.title}</h2>
+                    <Img fluid={tag.image.fluid} />
+                    <h2 className="page__postTitle">{tag.title}</h2>
                     <div className="page__postDetails">
                       <p className="page__postPublished">
-                        {post.lastUpdated ? post.lastUpdated : post.published}
+                        {tag.lastUpdated ? tag.lastUpdated : tag.published}
                       </p>
                       <p className="page__postTimeToRead">
-                        {post.timeToRead} min read
+                        {tag.timeToRead} min read
                       </p>
                     </div>
-                    <p className="page__postSubtitle">{post.subtitle}</p>
+                    <p className="page__postSubtitle">{tag.subtitle}</p>
                   </li>
                 </Link>
-              )
+              );
             })}
           </ul>
         </div>

@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
 
 class Post extends React.Component {
   render() {
-    const { post } = this.props;
-    const { previous, next } = this.props;
+    const { contentfulBlog } = this.props
+    const { previous, next } = this.props
+    const post = contentfulBlog
 
     return (
       <div className="post">
@@ -72,4 +72,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post;
+export default Post

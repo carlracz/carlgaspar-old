@@ -1,17 +1,20 @@
-import React, { Component } from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 class Page extends Component {
   render() {
+    const { allContentfulPage } = this.props
+    const { footer } = this.props
+    
     return (
       <div className="page">
         <div className="page__container">
           <ul className="page__posts">
-            {this.props.allContentfulPage.map(post => {
+            {allContentfulPage.map(post => {
               post = post.node
               return (
-                <Link className="page__post" key={post.uniqueId} style={{ boxShadow: `none` }} to={post.slug}>
+                <Link className="page__post" key={post.uniqueId} to={post.slug}>
                   <li>
                     <Img fluid={post.image.fluid} />
                     <h2 className="page__postTitle">{post.title}</h2>
@@ -30,10 +33,10 @@ class Page extends Component {
             })}
           </ul>
         </div>
-        {this.props.footer}
+        {footer}
       </div>
-    );
+    )
   }
 }
 
-export default Page;
+export default Page

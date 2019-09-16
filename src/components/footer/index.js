@@ -66,10 +66,10 @@ class Footer extends Component {
   
   render() {
     return (
-      <div className={"footer"}>
+      <div className="footer">
         <div className="footer__container">
           <div className="footer__left">
-            <div className={"footer__name"}>
+            <div className="footer__name">
               
               <Animated animationIn="slideInLeft" animationOut="slideOutLeft" isVisible={this.state.isFooterActive} animationInDuration={150} animationOutDuration={150}>
                 <div>
@@ -104,84 +104,86 @@ class Footer extends Component {
                   everyday.
                 </p>
               </div>
+              
+              <Animated animationIn="slideInLeft" animationOut="slideOutLeft" isVisible={this.state.isFooterActive} animationInDuration={150} animationOutDuration={150}>
+                <div className="footer__socials">
+                  <a
+                    href="asd"
+                    className="footer__reddit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__youtube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__linkedin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__aboutme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                  <a
+                    href="asd"
+                    className="footer__portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    
+                  </a>
+                </div>
+              </Animated>
             </div>
             
-            <Animated animationIn="slideInLeft" animationOut="slideOutLeft" isVisible={this.state.isFooterActive} animationInDuration={150} animationOutDuration={150}>
-              <div className={"footer__socials"}>
-                <a
-                  href="asd"
-                  className="footer__reddit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__facebook"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__instagram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__github"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__youtube"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__linkedin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__aboutme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-                <a
-                  href="asd"
-                  className="footer__portfolio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                </a>{" "}
-              </div>
-            </Animated>
+            
           </div>
           
           {/*<div className="footer__middle">
@@ -248,7 +250,7 @@ class Footer extends Component {
         
         <div className={"footer__credit " + this.state.footer__credit}>
           <div className="footer__creditname">
-            <p style={{marginBottom: `-1.75rem`,}}>
+            <p>
               <span className="--emphasis">@</span>
               carlracz{" "}
               <span className="--emphasis">|</span>{" "}
