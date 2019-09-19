@@ -1,8 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-import bb from "./sprite_60fps.svg"
-import aa from "./facebook.svg"
-
 const HeaderCss = createGlobalStyle`
   /** HEADER */
   .header {
@@ -12,12 +9,12 @@ const HeaderCss = createGlobalStyle`
     right: 0;
     top: 0;
     padding: 0 1.5em;
+    z-index: 1; // Mainbody has no z-index (means 0)
     
     background: ${props =>
       props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
-    z-index: 1; // Mainbody has no z-index (means 0)
     
-    transition: 300ms ease;
+    transition: var(--themingTiming); // For Theming
   }
   
   .header--minimized {
@@ -43,11 +40,11 @@ const HeaderCss = createGlobalStyle`
   /** HEADER CONTAINER */
   
   /** NAME */
-  .header__name {
+  .header__nameContainer {
     width: 270px;
-    height: 77px;
+    height: 55px;
     position: absolute;
-    bottom: 94px;
+    bottom: 118px;
     // Center Horizontal
     left: 50%;
     transform: translateX(-50%);
@@ -56,236 +53,257 @@ const HeaderCss = createGlobalStyle`
     line-height: 76px;
     text-align: center;
     letter-spacing: -0.06em;
-    color: ${props =>
-      props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
     
-    transition: 300ms ease;
+    transition: 300ms ease; // For changing position when scrolling
+    
+    .header__name {
+      color: ${props =>
+        props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+      
+      transition: var(--themingTiming); // For Theming
+    }
   }
   
-  .header__name--minimized {
-    bottom: 15px;
+  .header__nameContainer--minimized {
+    bottom: 37px;
     left: 0;
     transform: unset;
   }
   
-  .header__name--minimized2 {
-    bottom: 0;
+  .header__nameContainer--minimized2 {
+    bottom: 22px;
     left: 0;
     transform: unset;
   }
   /** NAME */
-  
-  @keyframes play60 {
-    0% {
-      background-position: 0px 0px;
-    }
-    100% {
-      background-position: -3312px 0px;
-    }
-  }
-  .shapeshifter {
-    animation-duration: 1000ms;
-    animation-timing-function: steps(24);
-    animation-iteration-count: infinite;
-    width: 138px;
-    height: 36px;
-    background-repeat: no-repeat;
-    background-image: url(${bb});
-  }
-  .shapeshifter.play {
-    animation-name: play60;
-  }
-  
-  
 
   /** SOCIALS */
   .header__socials {
     position: absolute;
-    bottom: 74px;
+    bottom: 45px;
     // Center Horizontal
     right: 50%;
     transform: translateX(50%);
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
   
-    transition: 300ms ease;
+    transition: 300ms ease; // For changing size when scrolled
     
-    & > * {
-      padding: 2px 15px;
-      margin: 0 5px 0 5px;
-    
-      border-radius: 8px;
-      transition: 300ms ease;
+    & > * { // Pointing to the Animated <div>
+      margin: 0 5px 0;
+      
+      & a > img {
+        width: 36px;
+        height: 36px;
+        
+        transition: 300ms ease; // For changing size when animating
+        
+        &.true {
+          width: 36px;
+        }
+        
+        &.false {
+          width: 138px;
+        }
+      }
     }
   
     .header__reddit {
-      //background-repeat: no-repeat;
-      //background-image: url(${bb});
+      /*&.true {
+        width: 36px;
+      }
+      
+      &.false {
+        width: 138px;
+      }*/
     }
     
     .header__facebook {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__instagram {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__twitter {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__github {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__youtube {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__linkedin {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__aboutme {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
     
     .header__portfolio {
-      background-repeat: no-repeat;
-      background-image: url(${aa});
+      
     }
   }
   
   .header__socials--minimized {
-    width: 406px;
-    height: 50px;
-    bottom: 33px;
+    bottom: 15px;
     right: 0;
     transform: unset;
     
-    & > * {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      top: 7px;
+    & > * { // Pointing to the Animated <div>
+      margin: 0 5px 0;
       
-      border-radius: 8px;
+      & a > img {
+        width: 36px;
+        height: 36px;
+        
+        transition: 300ms ease;
+        
+        &.true {
+          width: 36px;
+        }
+        
+        &.false {
+          width: 138px;
+        }
+      }
     }
     
     .header__reddit {
-      left: 1px;
+      /*&.true {
+        width: 36px;
+      }
+      
+      &.false {
+        width: 138px;
+      }*/
     }
     
     .header__facebook {
-      left: 47px;
+      
     }
     
     .header__instagram {
-      left: 93px;
+      
     }
     
     .header__twitter {
-      left: 139px;
+      
     }
     
     .header__github {
-      left: 185px;
+      
     }
     
     .header__youtube {
-      left: 231px;
+      
     }
     
     .header__linkedin {
-      left: 277px;
+      
     }
     
     .header__aboutme {
-      left: 323px;
+      
     }
     
     .header__portfolio {
-      left: 369px;
+      
     }
   }
   
   .header__socials--minimized2 {
-    width: 406px;
-    height: 50px;
-    bottom: 17px;
+    bottom: 0;
     right: 0;
     transform: unset;
     
-    & > * {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      top: 7px;
+    & > * { // Pointing to the Animated <div>
+      margin: 0 5px 0;
       
-      border-radius: 8px;
+      & a > img {
+        width: 36px;
+        height: 36px;
+        
+        transition: 300ms ease;
+        
+        &.true {
+          width: 36px;
+        }
+        
+        &.false {
+          width: 138px;
+        }
+      }
     }
     
     .header__reddit {
-      left: 1px;
+      /*&.true {
+        width: 36px;
+      }
+      
+      &.false {
+        width: 138px;
+      }*/
     }
     
     .header__facebook {
-      left: 47px;
+      
     }
     
     .header__instagram {
-      left: 93px;
+      
     }
     
     .header__twitter {
-      left: 139px;
+      
     }
     
     .header__github {
-      left: 185px;
+      
     }
     
     .header__youtube {
-      left: 231px;
+      
     }
     
     .header__linkedin {
-      left: 277px;
+      
     }
     
     .header__aboutme {
-      left: 323px;
+      
     }
     
     .header__portfolio {
-      left: 369px;
+      
     }
   }
   /** SOCIALS */
   
   /** NAVIGATION */
   .header__navigation {
-    width: 330px;
-    height: 40px;
-    
     position: absolute;
     top: 120px;
     // Center Horizontal
     left: 50%;
     transform: translateX(-50%);
     
-    transition: 300ms ease;
-    
-    & > * {
-      height: 38px;
-      position: absolute;
-      top: 2px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    transition: 300ms ease; // For moving when scrolled
+      
+    & > * { // Pointing to the each navs
+      margin: 0 5px 0;
       
       font-size: 24px;
       line-height: 38px;
@@ -300,48 +318,39 @@ const HeaderCss = createGlobalStyle`
         props.theme === "light"
           ? "var(--primaryLight3)"
           : "var(--primaryDark3)"};
+          
+      transition: var(--themingTiming); // For Theming
+      
+      &:hover {
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+      }
     }
     
-    .header__home {
-      width: 68px;
-      left: 0;
-    }
-    
-    .header__featured {
-      width: 89px;
-      left: 70px;
-    }
-    
-    .header__stopper {
-      width: 8px;
-      left: 169px;
-    }
-    
-    .header__blog {
-      width: 45px;
-      left: 187px;
-    }
-    
-    .header__portfolio {
-      width: 88px;
-      left: 242px;
+    div:hover {
+      color: ${props =>
+        props.theme === "light"
+          ? "var(--primaryLight3)"
+          : "var(--primaryDark3)"};
     }
   }
   
   .header__navigation--minimized {
-    top: 16px;
+    top: 18px;
     left: 105%;
     transform: unset;
   }
   
   .header__navigation--minimized2 {
-    top: 16px;
+    top: 18px;
     left: 105%;
     transform: unset;
   }
   
   .header__navigation--minimized3 {
-    top: 125px;
+    top: 128px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -366,269 +375,106 @@ const HeaderCss = createGlobalStyle`
       height: 108px;
     }
     
-    .header__name--minimized {
-      bottom: 43px;
+    .header__nameContainer--minimized {
+      bottom: 65px;
       left: 50%;
       transform: translateX(-50%);
     }
     
-    .header__name--minimized2 {
-      bottom: 43px;
+    .header__nameContainer--minimized2 {
+      bottom: 65px;
       left: 50%;
       transform: translateX(-50%);
     }
     
+    .header__socials {
+      bottom: 50px;
+    }
     
-    .header__socials--minimized {
-      width: 297px;
-      height: 39px;
-      
+    .header__socials--minimized, .header__socials--minimized2 {
+      bottom: 8px;
+    }
+    
+    // width smaller because of screen size. all class share the same properties
+    .header__socials, .header__socials--minimized, .header__socials--minimized2 {
       position: absolute;
-      bottom: 30px;
       // Center Horizontal
       right: 50%;
       transform: translateX(50%);
+      
+      display: flex;
+      align-items: center;
+      text-align: center;
     
       transition: 300ms ease;
       
-      & > * {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        top: 7px;
+      & > * { // Pointing to the Animated <div>
+        margin: 0 5px 0;
         
-        border-radius: 8px;
-        
-        transition: 300ms ease;
+        & a > img {
+          width: 30px;
+          height: 30px;
+          
+          transition: 300ms ease;
+          
+          &.true {
+            width: 30px;
+          }
+          
+          &.false {
+            width: 115px;
+          }
+        }
       }
     
       .header__reddit {
-        left: 0;
-        background: #FF3D00;
+      
       }
       
       .header__facebook {
-        left: 34px;
-        background: #00A3FF;
+        
       }
       
       .header__instagram {
-        left: 68px;
-        background: #BD00FF;
+        
       }
       
       .header__twitter {
-        left: 102px;
-        background: #00FFF0;
+        
       }
       
       .header__github {
-        left: 136px;
-        background: #006FD6;
+        
       }
       
       .header__youtube {
-        left: 170px;
-        background: #FF0000;
+        
       }
       
       .header__linkedin {
-        left: 204px;
-        background: #218BEE;
+        
       }
       
       .header__aboutme {
-        left: 238px;
-        background: #676869;
+        
       }
       
       .header__portfolio {
-        left: 272px;
-        background: #2C2D2E;
+        
       }
     }
     
-    .header__socials--minimized2 {
-      width: 297px;
-      height: 39px;
-      
-      position: absolute;
-      bottom: 30px;
-      // Center Horizontal
-      right: 50%;
-      transform: translateX(50%);
-    
-      transition: 300ms ease;
-      
-      & > * {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        top: 7px;
-        
-        border-radius: 8px;
-        
-        transition: 300ms ease;
-      }
-    
-      .header__reddit {
-        left: 0;
-        background: #FF3D00;
-      }
-      
-      .header__facebook {
-        left: 34px;
-        background: #00A3FF;
-      }
-      
-      .header__instagram {
-        left: 68px;
-        background: #BD00FF;
-      }
-      
-      .header__twitter {
-        left: 102px;
-        background: #00FFF0;
-      }
-      
-      .header__github {
-        left: 136px;
-        background: #006FD6;
-      }
-      
-      .header__youtube {
-        left: 170px;
-        background: #FF0000;
-      }
-      
-      .header__linkedin {
-        left: 204px;
-        background: #218BEE;
-      }
-      
-      .header__aboutme {
-        left: 238px;
-        background: #676869;
-      }
-      
-      .header__portfolio {
-        left: 272px;
-        background: #2C2D2E;
-      }
-    }
-    
-    .header__navigation--minimized {
-      width: 330px;
-      height: 40px;
-      
-      position: absolute;
-      top: 80px;
-      // Center Horizontal
+    // Navigation doesnt move when on small screen
+    .header__navigation--minimized, .header__navigation--minimized2 {
+      top: 85px;
       left: 50%;
       transform: translateX(-50%);
-      
-      transition: 300ms ease;
-      
-      & > * {
-        height: 38px;
-        position: absolute;
-        top: 2px;
-        
-        font-size: 24px;
-        line-height: 38px;
-        
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.06em;
-        
-        color: ${props =>
-          props.theme === "light"
-            ? "var(--primaryLight3)"
-            : "var(--primaryDark3)"};
-      }
-      
-      .header__home {
-        width: 68px;
-        left: 0;
-      }
-      
-      .header__featured {
-        width: 89px;
-        left: 70px;
-      }
-      
-      .header__stopper {
-        width: 8px;
-        left: 169px;
-      }
-      
-      .header__blog {
-        width: 45px;
-        left: 187px;
-      }
-      
-      .header__portfolio {
-        width: 88px;
-        left: 242px;
-      }
     }
     
-    .header__navigation--minimized2 {
-      width: 330px;
-      height: 40px;
-      
-      position: absolute;
-      top: 80px;
-      // Center Horizontal
+    .header__navigation--minimized3 {
+      top: 128px;
       left: 50%;
       transform: translateX(-50%);
-      
-      transition: 300ms ease;
-      
-      & > * {
-        height: 38px;
-        position: absolute;
-        top: 2px;
-        
-        font-size: 24px;
-        line-height: 38px;
-        
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.06em;
-        
-        color: ${props =>
-          props.theme === "light"
-            ? "var(--primaryLight3)"
-            : "var(--primaryDark3)"};
-      }
-      
-      .header__home {
-        width: 68px;
-        left: 0;
-      }
-      
-      .header__featured {
-        width: 89px;
-        left: 70px;
-      }
-      
-      .header__stopper {
-        width: 8px;
-        left: 169px;
-      }
-      
-      .header__blog {
-        width: 45px;
-        left: 187px;
-      }
-      
-      .header__portfolio {
-        width: 88px;
-        left: 242px;
-      }
     }
   }
   

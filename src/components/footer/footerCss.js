@@ -38,10 +38,10 @@ const FooterCss = createGlobalStyle`
   /** NAME */
   .footer__name {
     width: 270px;
-    height: 77px;
+    height: 55px;
 
     position: absolute;
-    top: 0;
+    top: -4px;
     left: 0;
     
     font-size: 48px;
@@ -54,7 +54,7 @@ const FooterCss = createGlobalStyle`
     transition: 300ms ease;
     
     .footer__summary {
-      width: 350px;
+      width: 470px;
       margin: -30px 0 0 5px;
       font-size: 14px;
       text-align: left;
@@ -66,57 +66,73 @@ const FooterCss = createGlobalStyle`
   
   /** SOCIALS */
   .footer__socials {
-    width: 100%;
-    //height: 34px; // temporary
+    margin: -25px 0 0;
     
-    & > * {
-      padding-right: 34px;
-      margin-right: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    transition: 300ms ease; // For changing size when scrolled
+    
+    & > * { // Pointing to the Animated <div>
+      margin: 0 5px 0;
       
-      //width: 24px;
-      //height: 24px;
-      
-      //position: absolute;
-      
-      //margin-right: 34px;
-      border-radius: 8px;
-      transition: 300ms ease;
+      & a > img {
+        width: 30px;
+        height: 30px;
+        
+        transition: 300ms ease; // For changing size when animating
+        
+        &.true {
+          width: 30px;
+        }
+        
+        &.false {
+          width: 115px;
+        }
+      }
     }
   
     .footer__reddit {
-      background: #FF3D00;
+      /*&.true {
+        width: 36px;
+      }
+      
+      &.false {
+        width: 138px;
+      }*/
     }
     
     .footer__facebook {
-      background: #00A3FF;
+      
     }
     
     .footer__instagram {
-      background: #BD00FF;
+      
     }
     
     .footer__twitter {
-      background: #00FFF0;
+      
     }
     
     .footer__github {
-      background: #006FD6;
+      
     }
     
     .footer__youtube {
-      background: #FF0000;
+      
     }
     
     .footer__linkedin {
-      background: #218BEE;
+      
     }
     
     .footer__aboutme {
-      background: #676869;
+      
     }
     
     .footer__portfolio {
-      background: #2C2D2E;
+      
     }
   }
   /** SOCIALS */
@@ -256,7 +272,6 @@ const FooterCss = createGlobalStyle`
   .footer__left {
     flex: 0 0 32%;
     position: relative;
-    margin: 0 0 1em;
     width: 100%;
     height: 100%;
   }
