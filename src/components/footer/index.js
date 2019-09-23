@@ -378,6 +378,7 @@ class Footer extends Component {
                   <button type="submit">Say Hello!</button>
                 </div>
               </form>
+              <p className="footer__responsive">I'm responsive! ⬜☐◻◽</p>
             </div>
           </div>
         </div>

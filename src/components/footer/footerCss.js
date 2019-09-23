@@ -10,9 +10,9 @@ const FooterCss = createGlobalStyle`
     bottom: 0;
     padding: 0 1.5em;
     margin-bottom: 40px;
-    
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
     z-index: 1; // Mainbody has no z-index (means 0)
+    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    box-shadow: 0px -8px 5px #d6d6d62e;
     
     transition: 300ms ease;
   }
@@ -188,12 +188,14 @@ const FooterCss = createGlobalStyle`
   /** FOOTER SAYHELLO */
   .footer__sayHello {
     position: absolute;
-    top: -32px;
+    top: -29px;
     right: 0;
     
+    form > * {
+      margin: 8px 0 0;
+    }
+    
     .footer__botfield {
-      margin: 10px 0 0;
-      
       input {
         border-radius: 10px;
         padding: 0 10px;
@@ -201,12 +203,10 @@ const FooterCss = createGlobalStyle`
     }
     
     .footer__email {
-      margin: 10px 0 0;
-      
       input {
         border-radius: 10px;
-        padding: 0 10px;
-        width: 68%;
+        padding: 1px 10px;
+        width: 61%;
         outline: none;
         color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
         background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
@@ -220,13 +220,11 @@ const FooterCss = createGlobalStyle`
     }
     
     .footer__message {
-      margin: 10px 0 0;
-      
       textarea {
         border-radius: 10px;
-        padding: 0 10px;
+        padding: 5px 10px;
         width: 350px;
-        height: 110px;
+        height: 105px;
         outline: none;
         resize: none;
         color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
@@ -243,20 +241,22 @@ const FooterCss = createGlobalStyle`
     .footer__sayHello--button {
       button {
         width: 30%;
-        height: 31px; //29px
+        height: 26px;
         position: absolute;
-        top: 52px;
+        top: 42px;
         left: 70%;
         border-radius: 10px;
         color: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
         background: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
-        border-left: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-right: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        //border-top: none;
-        border-top: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        //border-bottom: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-bottom: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+        border: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
       }
+    }
+    
+    .footer__responsive {
+      text-align: right
+      margin: -14px 10px 0 0;
+      font-size: 14px;
+      color: ${props => props.theme === "light" ? "var(--primaryLight2)" : "var(--primaryDark2)"};
     }
   }
   /** FOOTER SAYHELLO */
