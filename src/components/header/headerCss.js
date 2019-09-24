@@ -414,6 +414,7 @@ const HeaderCss = createGlobalStyle`
         & a > img {
           width: 30px;
           height: 30px;
+          border-radius: 5px;
           
           transition: 300ms ease;
           
@@ -423,6 +424,10 @@ const HeaderCss = createGlobalStyle`
           
           &.false {
             width: 115px;
+          }
+          
+          &:hover {
+            transform: scale(1.1);
           }
         }
       }
