@@ -154,6 +154,18 @@ const PageCss = createGlobalStyle`
       }
     }
   }
+  
+  @media only screen and (max-width: 700px) {
+    .page__container {
+      padding: 220px 1.5em 440px;
+    }
+  }
+  
+  @media only screen and (min-width: 701px) and (max-width: 1140px) {
+    .page__container {
+      padding: 220px 1.5em 420px;
+    }
+  }
 `;
 
 export default PageCss;

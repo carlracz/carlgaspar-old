@@ -62,8 +62,16 @@ const The404Css = createGlobalStyle`
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  @media only screen and (min-width: 35em) {
+  @media only screen and (max-width: 700px) {
+    .the404__container {
+      padding: 220px 0 440px;
+    }
+  }
   
+  @media only screen and (min-width: 701px) and (max-width: 1140px) {
+    .the404__container {
+      padding: 220px 0 420px;
+    }
   }
 `;
 

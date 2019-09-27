@@ -180,6 +180,18 @@ const PostCss = createGlobalStyle`
       height: 50vh !important;
     }
   }
+  
+  @media only screen and (max-width: 700px) {
+    .post__container {
+      padding: 220px 1.5em 440px;
+    }
+  }
+  
+  @media only screen and (min-width: 701px) and (max-width: 1140px) {
+    .post__container {
+      padding: 220px 1.5em 420px;
+    }
+  }
 `;
 
 export default PostCss;
