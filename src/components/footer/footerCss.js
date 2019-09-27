@@ -50,6 +50,7 @@ const FooterCss = createGlobalStyle`
     letter-spacing: -0.06em;
     
     color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+    z-index: 1; // to be on top of hidden input field (anti robot)
     
     transition: 300ms ease;
     
@@ -80,6 +81,7 @@ const FooterCss = createGlobalStyle`
       & a > img {
         width: 30px;
         height: 30px;
+        border-radius: 5px;
         
         transition: 300ms ease; // For changing size when animating
         
@@ -89,6 +91,10 @@ const FooterCss = createGlobalStyle`
         
         &.false {
           width: 115px;
+        }
+        
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }
@@ -153,8 +159,13 @@ const FooterCss = createGlobalStyle`
     right: 0;
     top: 0;
     
+    > * { // usefulLinks and poweredBy
+      position: absolute;
+      top: 5px;
+    }
+    
     p {
-      margin-bottom: -10px;
+      margin: 0
       color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
       
       > * {
@@ -164,26 +175,15 @@ const FooterCss = createGlobalStyle`
       }
     }
   }
-  /** FOOTER MIDDLE */
   
   .footer__usefulLinks {
-    position: absolute;
-    left: 0;
-    top: 11px;
+    margin-left: 15px;
   }
   
   .footer__poweredBy {
-    position: absolute;
-    left: 50%;
-    top: 11px;
-    transform: translateX(-50%);
+    margin-left: 150px;
   }
-  
-  .footer__contactMe {
-    position: absolute;
-    right: 0;
-    top: 11px;
-  }
+  /** FOOTER MIDDLE */
   
   /** FOOTER SAYHELLO */
   .footer__sayHello {
@@ -199,6 +199,7 @@ const FooterCss = createGlobalStyle`
       input {
         border-radius: 10px;
         padding: 0 10px;
+        z-index: 0;
       }
     }
     
@@ -208,6 +209,7 @@ const FooterCss = createGlobalStyle`
         padding: 1px 10px;
         width: 61%;
         outline: none;
+        font-size: 90%;
         color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
         background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
         border-left: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
@@ -227,6 +229,7 @@ const FooterCss = createGlobalStyle`
         height: 105px;
         outline: none;
         resize: none;
+        font-size: 90%;
         color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
         background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
         border-left: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
@@ -241,10 +244,11 @@ const FooterCss = createGlobalStyle`
     .footer__sayHello--button {
       button {
         width: 30%;
-        height: 26px;
+        height: 28px;
         position: absolute;
         top: 42px;
         left: 70%;
+        font-size: 90%;
         border-radius: 10px;
         color: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
         background: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
@@ -270,26 +274,24 @@ const FooterCss = createGlobalStyle`
   }
   
   .footer__left {
-    flex: 0 0 32%;
+    flex: 0 0 41%;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 200px;
   }
   
   .footer__middle {
-    flex: 0 0 32%;
+    flex: 0 0 28%;
     position: relative;
-    margin: 0px 0px 1em;
     width: 100%;
-    height: 100%;
+    height: 200px;
   }
   
   .footer__right {
-    flex: 0 0 32%;
+    flex: 0 0 28%;
     position: relative;
-    margin: 0 0 1em;
     width: 100%;
-    height: 100%;
+    height: 200px;
   }
   
   /** CREDIT */
@@ -302,6 +304,7 @@ const FooterCss = createGlobalStyle`
     bottom: 0;
     
     background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    z-index: 2; // so on top of footer__name, which is on top of anti robot
     
     transition: 300ms ease;
     
@@ -338,23 +341,156 @@ const FooterCss = createGlobalStyle`
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  @media only screen and (max-width: 1140px) {
+  /*@media only screen and (max-width: 925px) {
     .footer__left {
-      flex: 0 0 50%;
+      flex: 0 0 100%;
+      order: 1;
     }
     
     .footer__middle {
-      flex: 0 0 50%;
+      flex: 0 0 100%;
+      order: 3;
     }
     
     .footer__right {
-      flex: 0 0 50%;
+      flex: 0 0 100%;
+      order: 2;
+    }
+  }*/
+  
+  @media only screen and (max-width: 700px) { // 774
+    .footer {
+      height: 390px;
+    }
+  
+    .footer__left {
+      flex: 0 0 100%;
+      order: 1;
+      height: 180px;
+      
+      .footer__name {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .footer__summary {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        text-align: center;
+      }
+      
+      .footer__socials {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 55px;
+      }
+    }
+    
+    .footer__middle {
+      display: none;
+    }
+    
+    .footer__right {
+      flex: 0 0 100%;
+      order: 2;
+      
+      .footer__sayHello {
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
   }
   
-  // 320 *.9
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
+  @media only screen and (min-width: 701px) and (max-width: 882px) {
+    .footer {
+      height: 370px;
+    }
+  
+    .footer__left {
+      flex: 0 0 100%;
+      order: 1;
+      height: 150px;
+      
+      .footer__name {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .footer__summary {
+        width: 620px;
+            
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        text-align: center;
+      }
+      
+      .footer__socials {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+      }
+    }
     
+    .footer__middle {
+      flex: 0 0 39%;
+      order: 3;
+    }
+    
+    .footer__right {
+      flex: 0 0 59%;
+      order: 2;
+    }
+  }
+  
+  @media only screen and (min-width: 883px) and (max-width: 1140px) {
+    .footer {
+      height: 370px;
+    }
+  
+    .footer__left {
+      flex: 0 0 100%;
+      order: 1;
+      height: 150px;
+      
+      .footer__name {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .footer__summary {
+        width: 620px;
+            
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        text-align: center;
+      }
+      
+      .footer__socials {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+      }
+    }
+    
+    .footer__middle {
+      flex: 0 0 42%;
+      order: 3;
+    }
+    
+    .footer__right {
+      flex: 0 0 56%;
+      order: 2;
+    }
+  }
 `;
 
 export default FooterCss;

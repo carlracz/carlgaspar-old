@@ -1,7 +1,9 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
 
 import { Animated } from "react-animated-css"
+
+import themer from "./facebook.svg"
+import moveup from "./facebook.svg"
 
 class Utilities extends Component {
   state = {
@@ -55,25 +57,31 @@ class Utilities extends Component {
     return (
       <div className="utilities__">
         <div className="utilities__container">
-          <ul className="postContentful__navigation">
+          <ul className="utilities__location">
             <Animated
-              animationIn="slideInLeft"
-              animationOut="slideOutLeft"
+              className="utilities__left"
+              animationIn="fadeInLeftBig"
+              animationOut="fadeOutLeftBig"
               isVisible={this.state.isUtilitiesActive}
               animationInDuration={500}
-              animationOutDuration={1000}
+              animationOutDuration={500}
             >
-              <li onClick={this.props.setTheme}>←</li>
+              <li onClick={this.props.setTheme}>
+                <img src={themer} />
+              </li>
             </Animated>
 
             <Animated
-              animationIn="slideInRight"
-              animationOut="slideOutRight"
+              className="utilities__right"
+              animationIn="fadeInRightBig"
+              animationOut="fadeOutRightBig"
               isVisible={this.state.isUtilitiesActive}
               animationInDuration={500}
-              animationOutDuration={1000}
+              animationOutDuration={500}
             >
-              <li onClick={() => window.scrollTo(0, 0)}> →</li>
+              <li onClick={() => window.scrollTo(0, 0)}>
+                <img src={moveup} />
+              </li>
             </Animated>
           </ul>
         </div>

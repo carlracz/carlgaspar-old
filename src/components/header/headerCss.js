@@ -97,6 +97,7 @@ const HeaderCss = createGlobalStyle`
       & a > img {
         width: 36px;
         height: 36px;
+        border-radius: 5px;
         
         transition: 300ms ease; // For changing size when animating
         
@@ -106,6 +107,10 @@ const HeaderCss = createGlobalStyle`
         
         &.false {
           width: 138px;
+        }
+        
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }
@@ -164,6 +169,7 @@ const HeaderCss = createGlobalStyle`
       & a > img {
         width: 36px;
         height: 36px;
+        border-radius: 5px;
         
         transition: 300ms ease;
         
@@ -173,6 +179,10 @@ const HeaderCss = createGlobalStyle`
         
         &.false {
           width: 138px;
+        }
+        
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }
@@ -231,6 +241,7 @@ const HeaderCss = createGlobalStyle`
       & a > img {
         width: 36px;
         height: 36px;
+        border-radius: 5px;
         
         transition: 300ms ease;
         
@@ -240,6 +251,10 @@ const HeaderCss = createGlobalStyle`
         
         &.false {
           width: 138px;
+        }
+        
+        &:hover {
+          transform: scale(1.1);
         }
       }
     }
@@ -482,10 +497,6 @@ const HeaderCss = createGlobalStyle`
       transform: translateX(-50%);
     }
   }
-  
-  // 320 *.9
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
-    
 `;
 
 export default HeaderCss;

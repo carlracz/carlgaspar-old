@@ -14,9 +14,9 @@ const UtilitiesCss = createGlobalStyle`
   .utilities__ {
     position: fixed;
     height: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 0 1.5em;
     
     z-index: 1; // Mainbody has no z-index (means 0)
@@ -26,33 +26,37 @@ const UtilitiesCss = createGlobalStyle`
   /** UTILITIES CONTAINER */
   .utilities__container {
     position: relative;
-    max-width: 100rem;
+    max-width: 80rem;
     height: 100%;
     margin: 0 auto;
   }
   /** UTILITIES CONTAINER */
   
-  /** UTILITIES LEFT */
-  .utilities__left {
-    position: absolute;
-    left: 5rem;
-  }
-  /** UTILITIES LEFT */
-  
-  /** UTILITIES RIGHT */
-  .utilities__right {
-    position: absolute;
-    right: 5rem;
-  }
-  /** UTILITIES RIGHT */
-  
-  .postContentful__navigation {
+  .utilities__location {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
     padding: 0px;
   }
+  
+  .utilities__left, .utilities__right {
+      position: relative;
+      bottom: 115px;
+      
+      transition: 300ms ease; // For changing position when screen resizes
+      
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
   
   /** EMPHASIS */
   .--emphasis {
@@ -63,14 +67,11 @@ const UtilitiesCss = createGlobalStyle`
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  // 319 v * .8
-  @media only screen and (max-width: 319px) {
-    
+  @media only screen and (max-width: 1270px) {
+    .utilities__left, .utilities__right {
+      //bottom: 0;
+    }
   }
-  
-  // 320 *.9
-  @media only screen and (min-width: 320px) and (max-width: 479px) {
-    
 `;
 
 export default UtilitiesCss;

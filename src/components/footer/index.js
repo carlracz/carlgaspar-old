@@ -119,11 +119,11 @@ class Footer extends Component {
           <div className="footer__left">
             <div className="footer__name">
               <Animated
-                animationIn="slideInLeft"
-                animationOut="slideOutLeft"
+                animationIn="fadeInUp"
+                animationOut="fadeOutDown"
                 isVisible={this.state.isFooterActive}
-                animationInDuration={150}
-                animationOutDuration={150}
+                animationInDuration={400}
+                animationOutDuration={400}
               >
                 <div>
                   CARL <span className="--emphasis">GASPAR</span>
@@ -149,11 +149,11 @@ class Footer extends Component {
               </div>
 
               <Animated
-                animationIn="slideInLeft"
-                animationOut="slideOutLeft"
+                animationIn="fadeIn"
+                animationOut="fadeOut"
                 isVisible={this.state.isFooterActive}
-                animationInDuration={150}
-                animationOutDuration={150}
+                animationInDuration={400}
+                animationOutDuration={400}
               >
                 <p className="footer__socials">
                   <Animated
@@ -313,7 +313,7 @@ class Footer extends Component {
             </div>
           </div>
 
-          {/*<div className="footer__middle">
+          <div className="footer__middle">
             <div className="footer__usefulLinks">
               <p className="footer__usefulLinks--header">Useful Links</p>
               <p><Link>Home</Link></p>
@@ -321,9 +321,7 @@ class Footer extends Component {
               <p><Link>Tag</Link></p>
               <p><Link>Portfolio</Link></p>
               <p><Link>Advertisement</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
+              <p><Link>Advertisement</Link></p>
             </div>
             
             <div className="footer__poweredBy">
@@ -333,23 +331,9 @@ class Footer extends Component {
               <p><Link>Netlify</Link></p>
               <p><Link>GatsbyJS</Link></p>
               <p><Link>Contentful</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
+              <p><Link>Contentful</Link></p>
             </div>
-            
-            <div className="footer__contactMe">
-              <p className="footer__contactMe--header">Contact Me</p>
-              <p><Link>About Me</Link></p>
-              <p><Link>Instagram</Link></p>
-              <p><Link>Twitter</Link></p>
-              <p><Link>Youtube</Link></p>
-              <p><Link>Facebook</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
-              <p><Link>--</Link></p>
-            </div>
-          </div>*/}
+          </div>
 
           <div className="footer__right">
             <div className="footer__sayHello">
@@ -382,10 +366,9 @@ class Footer extends Component {
             </div>
           </div>
         </div>
-
-        {this.props.utilities}
-
+        
         <div className={"footer__credit " + this.state.footer__credit}>
+          {this.props.utilities}
           <div className="footer__creditname">
             <p>
               <span className="--emphasis">@</span>
