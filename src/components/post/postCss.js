@@ -44,7 +44,7 @@ const PostCss = createGlobalStyle`
     }
     
     .post__title {
-      width: 100%;
+      width: 90%;
       max-width: 650px;
       position: absolute;
       top: 42%;
@@ -183,13 +183,13 @@ const PostCss = createGlobalStyle`
   
   @media only screen and (max-width: 700px) {
     .post__container {
-      padding: 220px 1.5em 440px;
+      padding: 2.5em 1.5em 440px;
     }
   }
   
   @media only screen and (min-width: 701px) and (max-width: 1140px) {
     .post__container {
-      padding: 220px 1.5em 420px;
+      padding: 2.5em 1.5em 420px;
     }
   }
 `;

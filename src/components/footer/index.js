@@ -3,24 +3,24 @@ import { Link } from "gatsby"
 
 import { Animated } from "react-animated-css"
 
-import reddit from "./socials/facebook.svg"
-import reddit2 from "./socials/like.svg"
-import facebook from "./socials/facebook.svg"
-import facebook2 from "./socials/like.svg"
-import instagram from "./socials/facebook.svg"
-import instagram2 from "./socials/like.svg"
-import twitter from "./socials/facebook.svg"
-import twitter2 from "./socials/like.svg"
-import github from "./socials/facebook.svg"
-import github2 from "./socials/like.svg"
-import youtube from "./socials/facebook.svg"
-import youtube2 from "./socials/like.svg"
-import linkedin from "./socials/facebook.svg"
-import linkedin2 from "./socials/like.svg"
-import aboutme from "./socials/facebook.svg"
-import aboutme2 from "./socials/like.svg"
-import portfolio from "./socials/facebook.svg"
-import portfolio2 from "./socials/like.svg"
+import reddit from "./socials/Youtube.svg"
+import reddit2 from "./socials/Youtube.svg"
+import facebook from "./socials/Youtube.svg"
+import facebook2 from "./socials/Youtube.svg"
+import instagram from "./socials/Youtube.svg"
+import instagram2 from "./socials/Youtube.svg"
+import twitter from "./socials/Youtube.svg"
+import twitter2 from "./socials/Youtube.svg"
+import github from "./socials/Youtube.svg"
+import github2 from "./socials/Youtube.svg"
+import youtube from "./socials/Youtube.svg"
+import youtube2 from "./socials/Youtube.svg"
+import linkedin from "./socials/Youtube.svg"
+import linkedin2 from "./socials/Youtube.svg"
+import aboutme from "./socials/Youtube.svg"
+import aboutme2 from "./socials/Youtube.svg"
+import portfolio from "./socials/Youtube.svg"
+import portfolio2 from "./socials/Youtube.svg"
 
 class Footer extends Component {
   state = {
@@ -155,7 +155,7 @@ class Footer extends Component {
                 animationInDuration={400}
                 animationOutDuration={400}
               >
-                <p className="footer__socials">
+                <div className="footer__socials">
                   <Animated
                     animationIn="bounceIn"
                     animationOut="bounceOut"
@@ -308,7 +308,7 @@ class Footer extends Component {
                       />
                     </a>
                   </Animated>
-                </p>
+                </div>
               </Animated>
             </div>
           </div>
@@ -316,22 +316,82 @@ class Footer extends Component {
           <div className="footer__middle">
             <div className="footer__usefulLinks">
               <p className="footer__usefulLinks--header">Useful Links</p>
-              <p><Link>Home</Link></p>
-              <p><Link>Blog</Link></p>
-              <p><Link>Tag</Link></p>
-              <p><Link>Portfolio</Link></p>
-              <p><Link>Advertisement</Link></p>
-              <p><Link>Advertisement</Link></p>
+              <p>
+                <Link to="/">Home</Link>
+              </p>
+              <p>
+                <Link to="/blog">Blog</Link>
+              </p>
+              <p>
+                <Link to="/tag">Tag</Link>
+              </p>
+              <p>
+                <Link to="/merch">Merch</Link>
+              </p>
+              <p>
+                <Link to="/portfolio">Portfolio</Link>
+              </p>
+              <p>
+                <Link to="/advertisement">Advertisement</Link>
+              </p>
             </div>
-            
+
             <div className="footer__poweredBy">
               <p className="footer__poweredBy--header">Powered By</p>
-              <p><Link>Figma</Link></p>
-              <p><Link>Github</Link></p>
-              <p><Link>Netlify</Link></p>
-              <p><Link>GatsbyJS</Link></p>
-              <p><Link>Contentful</Link></p>
-              <p><Link>Contentful</Link></p>
+              <p>
+                <a
+                  href="https://aws.amazon.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  AWS
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.figma.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Figma
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.netlify.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Netlify
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.gatsbyjs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GatsbyJS
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.contentful.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contentful
+                </a>
+              </p>
             </div>
           </div>
 
@@ -366,7 +426,7 @@ class Footer extends Component {
             </div>
           </div>
         </div>
-        
+
         <div className={"footer__credit " + this.state.footer__credit}>
           {this.props.utilities}
           <div className="footer__creditname">

@@ -27,17 +27,16 @@ const GlobalCss = createGlobalStyle`
     --themingTiming: 400ms ease;
   }
   
+  body {
+    background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
+  }
+  
   a {
     text-decoration: none;
   }
   
   * {
     font-family: 'Baloo';
-    //transition: color 1000ms ease; //Detecting some lag
-  }
-  
-  body {
-    background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
   }
   
   .--none {

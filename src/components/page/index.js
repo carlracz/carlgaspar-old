@@ -11,10 +11,10 @@ class Page extends Component {
       <div className="page">
         <div className="page__container">
           <ul className="page__posts">
-            {allContentfulPage.map(post => {
+            {allContentfulPage.map((post, key) => {
               post = post.node
               return (
-                <Link className="page__post" key={post.uniqueId} to={post.slug}>
+                <Link className="page__post" key={key} to={post.slug}>
                   <li>
                     <Img fluid={post.image.fluid} />
                     <h2 className="page__postTitle">{post.title}</h2>

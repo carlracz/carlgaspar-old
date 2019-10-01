@@ -1,3 +1,13 @@
+/** TABLE OF CONTENTS
+ * 1. HEADER
+ * 2. HEADER CONTAINER
+ * 3. HEADER NAME
+ * 4. HEADER SOCIALS
+ * 5. HEADER NAVIGATION
+ * 6. EMPHASIS
+ * 7. RESPONSIVE
+ */
+
 import { createGlobalStyle } from "styled-components";
 
 const HeaderCss = createGlobalStyle`
@@ -39,7 +49,7 @@ const HeaderCss = createGlobalStyle`
   }
   /** HEADER CONTAINER */
   
-  /** NAME */
+  /** HEADER NAME */
   .header__nameContainer {
     width: 270px;
     height: 55px;
@@ -75,12 +85,12 @@ const HeaderCss = createGlobalStyle`
     left: 0;
     transform: unset;
   }
-  /** NAME */
+  /** HEADER NAME */
 
-  /** SOCIALS */
+  /** HEADER SOCIALS */
   .header__socials {
     position: absolute;
-    bottom: 45px;
+    bottom: 60px;
     // Center Horizontal
     right: 50%;
     transform: translateX(50%);
@@ -159,7 +169,7 @@ const HeaderCss = createGlobalStyle`
   }
   
   .header__socials--minimized {
-    bottom: 15px;
+    bottom: 32px;
     right: 0;
     transform: unset;
     
@@ -231,7 +241,7 @@ const HeaderCss = createGlobalStyle`
   }
   
   .header__socials--minimized2 {
-    bottom: 0;
+    bottom: 16px;
     right: 0;
     transform: unset;
     
@@ -301,9 +311,9 @@ const HeaderCss = createGlobalStyle`
       
     }
   }
-  /** SOCIALS */
+  /** HEADER SOCIALS */
   
-  /** NAVIGATION */
+  /** HEADER NAVIGATION */
   .header__navigation {
     position: absolute;
     top: 120px;
@@ -369,7 +379,7 @@ const HeaderCss = createGlobalStyle`
     left: 50%;
     transform: translateX(-50%);
   }
-  /** NAVIGATION */
+  /** HEADER NAVIGATION */
   
   /** EMPHASIS */
   .--emphasis {
@@ -381,7 +391,7 @@ const HeaderCss = createGlobalStyle`
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  @media only screen and (max-width: 1135px) {
+  @media only screen and (max-width: 1080px) {
     .header--minimized {
       height: 108px;
     }
@@ -403,11 +413,11 @@ const HeaderCss = createGlobalStyle`
     }
     
     .header__socials {
-      bottom: 50px;
+      bottom: 60px;
     }
     
     .header__socials--minimized, .header__socials--minimized2 {
-      bottom: 8px;
+      bottom: 24px;
     }
     
     // width smaller because of screen size. all class share the same properties
@@ -495,6 +505,84 @@ const HeaderCss = createGlobalStyle`
       top: 128px;
       left: 50%;
       transform: translateX(-50%);
+    }
+  }
+  
+  @media only screen and (min-width: 1081px) and (max-width: 1135px) {
+    .header__socials--minimized {
+      bottom: 18px;
+    }
+    .header__socials--minimized2 {
+      bottom: 2px;
+    }
+    
+    // width smaller because of screen size. all class share the same properties
+    .header__socials, .header__socials--minimized, .header__socials--minimized2 {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    
+      transition: 300ms ease;
+      
+      & > * { // Pointing to the Animated <div>
+        margin: 0 5px 0;
+        
+        & a > img {
+          width: 33px;
+          height: 33px;
+          border-radius: 5px;
+          
+          transition: 300ms ease;
+          
+          &.true {
+            width: 33px;
+          }
+          
+          &.false {
+            width: 115px;
+          }
+          
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    
+      .header__reddit {
+      
+      }
+      
+      .header__facebook {
+        
+      }
+      
+      .header__instagram {
+        
+      }
+      
+      .header__twitter {
+        
+      }
+      
+      .header__github {
+        
+      }
+      
+      .header__youtube {
+        
+      }
+      
+      .header__linkedin {
+        
+      }
+      
+      .header__aboutme {
+        
+      }
+      
+      .header__portfolio {
+        
+      }
     }
   }
 `;

@@ -3,24 +3,24 @@ import { Link } from "gatsby"
 
 import { Animated } from "react-animated-css"
 
-import reddit from "./socials/facebook.svg"
-import reddit2 from "./socials/like.svg"
-import facebook from "./socials/facebook.svg"
-import facebook2 from "./socials/like.svg"
-import instagram from "./socials/facebook.svg"
-import instagram2 from "./socials/like.svg"
+import reddit from "./socials/Youtube.svg"
+import reddit2 from "./socials/Youtube.svg"
+import facebook from "./socials/Youtube.svg"
+import facebook2 from "./socials/Youtube.svg"
+import instagram from "./socials/Youtube.svg"
+import instagram2 from "./socials/Youtube.svg"
 import twitter from "./socials/Twitter.svg"
 import twitter2 from "./socials/Twitter.svg"
-import github from "./socials/facebook.svg"
-import github2 from "./socials/like.svg"
+import github from "./socials/Youtube.svg"
+import github2 from "./socials/Youtube.svg"
 import youtube from "./socials/Youtube.svg"
 import youtube2 from "./socials/Youtube.svg"
 import linkedin from "./socials/Linkedin.svg"
 import linkedin2 from "./socials/Linkedin.svg"
 import aboutme from "./socials/Aboutme.svg"
 import aboutme2 from "./socials/Aboutme.svg"
-import portfolio from "./socials/facebook.svg"
-import portfolio2 from "./socials/like.svg"
+import portfolio from "./socials/Youtube.svg"
+import portfolio2 from "./socials/Youtube.svg"
 
 class Header extends Component {
   state = {
@@ -59,7 +59,7 @@ class Header extends Component {
     window.addEventListener("resize", this.handleResize)
     this.isScrollActive()
   }
-
+  
   handleScroll = () => {
     let scrollPosition = Math.round(window.scrollY)
     // If we've scrolled 100px, add minimize class to the header
@@ -168,7 +168,7 @@ class Header extends Component {
             </div>
           </div>
 
-          <p className={"header__socials " + this.state.headerSocials}>
+          <div className={"header__socials " + this.state.headerSocials}>
             <Animated
               animationIn="bounceIn"
               animationOut="bounceOut"
@@ -303,7 +303,7 @@ class Header extends Component {
                 />
               </a>
             </Animated>
-          </p>
+          </div>
         </div>
       </div>
     )

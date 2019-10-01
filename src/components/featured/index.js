@@ -11,9 +11,9 @@ class Featured extends Component {
       <div className="featured">
         <div className="featured__container">
           <ul className="featured__posts">
-            {allContentfulPage.map(post => {
+            {allContentfulPage.map((post, key) => {
               return (
-                <Link className="featured__post" key={post.uniqueId} to={post.slug}>
+                <Link className="featured__post" key={key} to={post.slug}>
                   <li>
                     <Img fluid={post.image.fluid} />
                     <p className="featured__contentModel">

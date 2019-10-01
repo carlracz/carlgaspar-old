@@ -1,3 +1,16 @@
+/** TABLE OF CONTENTS
+ * 1. FOOTER
+ * 2. FOOTER CONTAINER
+ * 3. FOOTER LEFT
+ * 4. FOOTER NAME
+ * 5. FOOTER SOCIALS
+ * 6. FOOTER MIDDLE
+ * 7. FOOTER RIGHT
+ * 8. FOOTER SAYHELLO
+ * 9. EMPHASIS
+ * 10. RESPONSIVE
+ */
+
 import { createGlobalStyle } from "styled-components";
 
 const FooterCss = createGlobalStyle`
@@ -11,37 +24,44 @@ const FooterCss = createGlobalStyle`
     padding: 0 1.5em;
     margin-bottom: 40px;
     z-index: 1; // Mainbody has no z-index (means 0)
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
-    box-shadow: 0px -8px 5px #d6d6d62e;
+    background: ${props =>
+      props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
     
-    transition: 300ms ease;
+    transition: var(--themingTiming); // For Theming
   }
   /** FOOTER */
   
   /** FOOTER CONTAINER */
   .footer__container {
-    position: relative;
     max-width: 70rem;
     height: 100%;
+    position: relative;
+    margin: 0 auto;
+    
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex-flow: row wrap;
     margin: 0 auto;
   }
   /** FOOTER CONTAINER */
   
   /** FOOTER LEFT */
   .footer__left {
-    position: absolute;
-    left: 0;
-    top: 0;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    flex: 0 0 41%;
   }
   /** FOOTER LEFT */
   
-  /** NAME */
+  /** FOOTER NAME */
   .footer__name {
     width: 270px;
     height: 55px;
 
     position: absolute;
-    top: -4px;
+    top: -10px;
     left: 0;
     
     font-size: 48px;
@@ -49,10 +69,11 @@ const FooterCss = createGlobalStyle`
     text-align: center;
     letter-spacing: -0.06em;
     
-    color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+    color: ${props =>
+      props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
     z-index: 1; // to be on top of hidden input field (anti robot)
     
-    transition: 300ms ease;
+    transition: var(--themingTiming); // For Theming
     
     .footer__summary {
       width: 470px;
@@ -63,20 +84,24 @@ const FooterCss = createGlobalStyle`
       letter-spacing: 0;
     }
   }
-  /** NAME */
+  /** FOOTER NAME */
   
-  /** SOCIALS */
+  /** FOOTER SOCIALS */
   .footer__socials {
-    margin: -25px 0 0;
-    
     display: flex;
     align-items: center;
     text-align: center;
-  
+    margin: -25px 0 0;
+    
     transition: 300ms ease; // For changing size when scrolled
     
     & > * { // Pointing to the Animated <div>
+      height: 30px;
       margin: 0 5px 0;
+      
+      a {
+        font-size: 0;
+      }
       
       & a > img {
         width: 30px;
@@ -141,23 +166,14 @@ const FooterCss = createGlobalStyle`
       
     }
   }
-  /** SOCIALS */
-  
-  
-  
-  /** FOOTER RIGHT */
-  .footer__right {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  /** FOOTER RIGHT */
+  /** FOOTER SOCIALS */
   
   /** FOOTER MIDDLE */
   .footer__middle {
-    position: absolute;
-    right: 0;
-    top: 0;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    flex: 0 0 28%;
     
     > * { // usefulLinks and poweredBy
       position: absolute;
@@ -166,12 +182,29 @@ const FooterCss = createGlobalStyle`
     
     p {
       margin: 0
-      color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+      color: ${props =>
+        props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+      transition: var(--themingTiming); // For Theming
       
-      > * {
+      a {
         font-size: 14px;
         box-shadow: none;
-        color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+            
+        transition: var(--themingTiming); // For Theming
+        
+        &:hover {
+          font-size: 100%;
+          color: ${props =>
+            props.theme === "light"
+              ? "var(--primaryLight)"
+              : "var(--primaryDark)"};
+              
+          transition: var(--themingTiming); // For Theming and Hovering
+        }
       }
     }
   }
@@ -184,6 +217,15 @@ const FooterCss = createGlobalStyle`
     margin-left: 150px;
   }
   /** FOOTER MIDDLE */
+  
+  /** FOOTER RIGHT */
+  .footer__right {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    flex: 0 0 28%;
+  }
+  /** FOOTER RIGHT */
   
   /** FOOTER SAYHELLO */
   .footer__sayHello {
@@ -210,14 +252,37 @@ const FooterCss = createGlobalStyle`
         width: 61%;
         outline: none;
         font-size: 90%;
-        color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
-        border-left: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-right: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        background: ${props =>
+          props.theme === "light"
+            ? "var(--secondaryLight)"
+            : "var(--secondaryDark)"};
+        border-left: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        border-right: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
         //border-top: none;
-        border-top: 2px solid ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
-        //border-bottom: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-bottom: 2px solid ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+        border-top: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+        //border-bottom: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        border-bottom: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+            
+        transition: var(--themingTiming); // For Theming
       }
     }
     
@@ -230,14 +295,37 @@ const FooterCss = createGlobalStyle`
         outline: none;
         resize: none;
         font-size: 90%;
-        color: ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        background: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
-        border-left: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-right: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        background: ${props =>
+          props.theme === "light"
+            ? "var(--secondaryLight)"
+            : "var(--secondaryDark)"};
+        border-left: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        border-right: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
         //border-top: none;
-        border-top: 2px solid ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
-        //border-bottom: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
-        border-bottom: 2px solid ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+        border-top: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+        //border-bottom: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        border-bottom: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+            
+        transition: var(--themingTiming); // For Theming
       }
     }
     
@@ -250,9 +338,25 @@ const FooterCss = createGlobalStyle`
         left: 70%;
         font-size: 90%;
         border-radius: 10px;
-        color: ${props => props.theme === "light" ? "var(--secondaryLight)" : "var(--secondaryDark)"};
-        background: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
-        border: 2px solid ${props => props.theme === "light" ? "var(--primaryLight)" : "var(--primaryDark)"};
+        cursor: pointer;
+        color: ${props =>
+          props.theme === "light"
+            ? "var(--secondaryLight)"
+            : "var(--secondaryDark)"};
+        background: ${props =>
+          props.theme === "light"
+            ? "var(--tertiaryLight)"
+            : "var(--tertiaryDark)"};
+        border: 2px solid ${props =>
+          props.theme === "light"
+            ? "var(--primaryLight)"
+            : "var(--primaryDark)"};
+        z-index: 2;
+        transition: var(--themingTiming); // For Theming and Hovering
+        
+        &:hover {
+          transform: scale(1.05)
+        }
       }
     }
     
@@ -260,41 +364,17 @@ const FooterCss = createGlobalStyle`
       text-align: right
       margin: -14px 10px 0 0;
       font-size: 14px;
-      color: ${props => props.theme === "light" ? "var(--primaryLight2)" : "var(--primaryDark2)"};
+      color: ${props =>
+        props.theme === "light"
+          ? "var(--primaryLight2)"
+          : "var(--primaryDark2)"};
+          
+      transition: var(--themingTiming); // For Theming
     }
   }
   /** FOOTER SAYHELLO */
   
-  .footer__container {
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    margin: 0 auto;
-  }
-  
-  .footer__left {
-    flex: 0 0 41%;
-    position: relative;
-    width: 100%;
-    height: 200px;
-  }
-  
-  .footer__middle {
-    flex: 0 0 28%;
-    position: relative;
-    width: 100%;
-    height: 200px;
-  }
-  
-  .footer__right {
-    flex: 0 0 28%;
-    position: relative;
-    width: 100%;
-    height: 200px;
-  }
-  
-  /** CREDIT */
+  /** FOOTER CREDIT */
   .footer__credit {
     height: 40px;
     width: 100%;
@@ -303,10 +383,11 @@ const FooterCss = createGlobalStyle`
     left: 0;
     bottom: 0;
     
-    background: ${props => props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
+    background: ${props =>
+      props.theme === "light" ? "var(--runningLight)" : "var(--runningDark)"};
     z-index: 2; // so on top of footer__name, which is on top of anti robot
     
-    transition: 300ms ease;
+    transition: var(--themingTiming); // For Theming
     
     .footer__creditname {
       position: absolute;
@@ -321,52 +402,46 @@ const FooterCss = createGlobalStyle`
       align-items: center;
       text-align: center;
       letter-spacing: -0.06em;
+      white-space: nowrap;
       
-      color: ${props => props.theme === "light" ? "var(--primaryLight3)" : "var(--primaryDark3)"};
+      color: ${props =>
+        props.theme === "light"
+          ? "var(--primaryLight3)"
+          : "var(--primaryDark3)"};
+          
+      transition: var(--themingTiming); // For Theming
     }
   }
   
   .footer__credit--minimize {
-    background: ${props => props.theme === "light" ? "var(--runningLight2)" : "var(--runningDark2)"};
+    background: ${props =>
+      props.theme === "light" ? "var(--runningLight2)" : "var(--runningDark2)"};
     box-shadow: 0px -8px 5px #aaaaaa2e;
+    
+    transition: var(--themingTiming); // For Theming
   }
-  /** CREDIT */
+  /** FOOTER CREDIT */
   
   /** EMPHASIS */
   .--emphasis {
-    color: ${props => props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
+    color: ${props =>
+      props.theme === "light" ? "var(--tertiaryLight)" : "var(--tertiaryDark)"};
   }
   /** EMPHASIS */
   
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  /*@media only screen and (max-width: 925px) {
-    .footer__left {
-      flex: 0 0 100%;
-      order: 1;
-    }
-    
-    .footer__middle {
-      flex: 0 0 100%;
-      order: 3;
-    }
-    
-    .footer__right {
-      flex: 0 0 100%;
-      order: 2;
-    }
-  }*/
-  
-  @media only screen and (max-width: 700px) { // 774
+  // Error when max width is 400px, the page enlareges as the .footer__social moves
+  @media only screen and (max-width: 700px) {
     .footer {
       height: 390px;
     }
   
     .footer__left {
+      height: 180px;
       flex: 0 0 100%;
       order: 1;
-      height: 180px;
       
       .footer__name {
         left: 50%;
@@ -374,9 +449,11 @@ const FooterCss = createGlobalStyle`
       }
       
       .footer__summary {
+        width: 400px;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        margin: -30px 0 0 0px;
         
         text-align: center;
       }
@@ -385,7 +462,7 @@ const FooterCss = createGlobalStyle`
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin-top: 55px;
+        margin-top: 68px;
       }
     }
     
@@ -421,11 +498,9 @@ const FooterCss = createGlobalStyle`
       
       .footer__summary {
         width: 620px;
-            
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        
         text-align: center;
       }
       
@@ -454,9 +529,9 @@ const FooterCss = createGlobalStyle`
     }
   
     .footer__left {
+      height: 150px;
       flex: 0 0 100%;
       order: 1;
-      height: 150px;
       
       .footer__name {
         left: 50%;
@@ -465,11 +540,9 @@ const FooterCss = createGlobalStyle`
       
       .footer__summary {
         width: 620px;
-            
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        
         text-align: center;
       }
       

@@ -2,8 +2,8 @@ import React, { Component } from "react"
 
 import { Animated } from "react-animated-css"
 
-import themer from "./facebook.svg"
-import moveup from "./facebook.svg"
+import themer from "./Youtube.svg"
+import moveup from "./Youtube.svg"
 
 class Utilities extends Component {
   state = {

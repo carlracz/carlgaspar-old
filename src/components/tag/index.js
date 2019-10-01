@@ -12,9 +12,9 @@ class Tag extends Component {
         <div className="page__container">
           <ul className="page__posts">
             <h1>{tag.title}</h1>
-            {tag.blog.map(tag => {
+            {tag.blog.map((tag, key) => {
               return (
-                <Link className="page__post" key={tag.uniqueId} to={tag.slug}>
+                <Link className="page__post" key={key} to={tag.slug}>
                   <li>
                     <Img fluid={tag.image.fluid} />
                     <h2 className="page__postTitle">{tag.title}</h2>

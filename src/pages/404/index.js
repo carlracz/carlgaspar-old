@@ -18,7 +18,10 @@ class The404 extends React.Component {
   
   componentDidMount = () => {
     // Determine what is the theme
-    const savedTheme = storage.getItem("CarlGasparTheme")
+    let savedTheme = storage.getItem("CarlGasparTheme")
+    if (!savedTheme) {
+      savedTheme = "light"
+    }
     savedTheme === "light" ? this.setLightTheme() : this.setDarkTheme()
   }
   
