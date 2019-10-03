@@ -210,10 +210,12 @@ const FooterCss = createGlobalStyle`
   }
   
   .footer__usefulLinks {
+    font-size: 110%;
     margin-left: 15px;
   }
   
   .footer__poweredBy {
+    font-size: 110%;
     margin-left: 150px;
   }
   /** FOOTER MIDDLE */
