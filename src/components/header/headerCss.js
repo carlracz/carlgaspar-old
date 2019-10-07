@@ -391,7 +391,124 @@ const HeaderCss = createGlobalStyle`
   /* ----------------------- ----------------------- ----------------------- */
   
   /** RESPONSIVE */
-  @media only screen and (max-width: 1080px) {
+  @media only screen and (max-width: 400px) {
+    .header--minimized {
+      height: 108px;
+    }
+    
+    .header--minimized2 {
+      height: 108px;
+    }
+    
+    .header__nameContainer--minimized {
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .header__nameContainer--minimized2 {
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .header__socials {
+      bottom: 60px;
+    }
+    
+    .header__socials--minimized, .header__socials--minimized2 {
+      bottom: 24px;
+    }
+    
+    // width smaller because of screen size. all class share the same properties
+    .header__socials, .header__socials--minimized, .header__socials--minimized2 {
+      position: absolute;
+      // Center Horizontal
+      right: 50%;
+      transform: translateX(50%);
+      
+      display: flex;
+      align-items: center;
+      text-align: center;
+    
+      transition: 300ms ease;
+      
+      & > * { // Pointing to the Animated <div>
+        margin: 0 2.5px 0;
+        
+        & a > img {
+          width: 30px;
+          height: 30px;
+          border-radius: 5px;
+          
+          transition: 300ms ease;
+          
+          &.true {
+            width: 30px;
+          }
+          
+          &.false {
+            width: 115px;
+          }
+          
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    
+      .header__reddit {
+      
+      }
+      
+      .header__facebook {
+        
+      }
+      
+      .header__instagram {
+        
+      }
+      
+      .header__twitter {
+        
+      }
+      
+      .header__github {
+        
+      }
+      
+      .header__youtube {
+        
+      }
+      
+      .header__linkedin {
+        
+      }
+      
+      .header__aboutme {
+        
+      }
+      
+      .header__portfolio {
+        
+      }
+    }
+    
+    // Navigation doesnt move when on small screen
+    .header__navigation--minimized, .header__navigation--minimized2 {
+      top: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .header__navigation--minimized3 {
+      top: 128px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  @media only screen and (min-width: 401px) and (max-width: 1080px) {
     .header--minimized {
       height: 108px;
     }

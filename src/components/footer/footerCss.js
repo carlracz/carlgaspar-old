@@ -435,7 +435,59 @@ const FooterCss = createGlobalStyle`
   
   /** RESPONSIVE */
   // Error when max width is 400px, the page enlareges as the .footer__social moves
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 400px) {
+    .footer {
+      height: 390px;
+    }
+  
+    .footer__left {
+      height: 180px;
+      flex: 0 0 100%;
+      order: 1;
+      
+      .footer__name {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .footer__summary {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: -30px 0 0 0px;
+        
+        text-align: center;
+      }
+      
+      .footer__socials {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 68px;
+        
+        & > * {
+          margin: 0 2.5px 0;
+        }
+      }
+    }
+    
+    .footer__middle {
+      display: none;
+    }
+    
+    .footer__right {
+      flex: 0 0 100%;
+      order: 2;
+      
+      .footer__sayHello {
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 401px) and (max-width: 700px) {
     .footer {
       height: 390px;
     }
