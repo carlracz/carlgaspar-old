@@ -31,7 +31,7 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.12",
     "local-storage-fallback": "^4.1.1",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.21.0",
     "react": "^16.9.0",
     "react-animated-css": "^1.2.1",
     "react-dom": "^16.9.0",
